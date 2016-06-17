@@ -14,7 +14,7 @@
 @end
 
 @implementation AppDelegate
-@synthesize school_class, school_grade, school_name, stu_name, school_code, food_url, lms_url, news_url, school_code_noncode, food_array, school_course, edit_ok, modi_dic, is_str, class_url;
+@synthesize school_class, school_grade, school_name, stu_name, school_code, food_url, lms_url, news_url, school_code_noncode, food_array, school_course, edit_ok, modi_dic, is_str, class_url, is_pass;
 
 
 - (NSString *)getDBPath {

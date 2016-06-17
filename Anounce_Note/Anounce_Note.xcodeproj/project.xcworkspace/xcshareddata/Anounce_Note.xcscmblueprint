@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "94B0B733BDFBB6CD188A20201A7C946AF178C462",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "94B0B733BDFBB6CD188A20201A7C946AF178C462" : 0,
+    "CBDE90E1F7A54873BF0853DFF0B88BE96D26A340" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E08EE46B-E68B-47EA-AE94-A9F9BD1918AA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "94B0B733BDFBB6CD188A20201A7C946AF178C462" : "Anounce\/",
+    "CBDE90E1F7A54873BF0853DFF0B88BE96D26A340" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Anounce_Note",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Anounce_Note\/Anounce_Note.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/koke0077\/Anounce.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "94B0B733BDFBB6CD188A20201A7C946AF178C462"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/Kimsungjun\/plantview.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CBDE90E1F7A54873BF0853DFF0B88BE96D26A340"
+    }
+  ]
+}

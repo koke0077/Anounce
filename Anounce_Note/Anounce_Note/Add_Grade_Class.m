@@ -156,6 +156,14 @@
 //    
 //}
 
+-(void)compliteGetGradeClass2:(NSArray *)cls_arr{
+ 
+    class_arr = cls_arr;
+    //
+    //    [self.picker reloadAllComponents];
+    
+}
+
 -(void)compliteGetGradeClass:(NSDictionary *)cls_num{
     
     class_dic = cls_num;
@@ -367,11 +375,65 @@
     
     NSMutableString *mutable_class_url = [[NSMutableString alloc]init];
     [mutable_class_url appendString:delegate.school_url];
-    [mutable_class_url appendString:class_url];
     
-    delegate.class_url = mutable_class_url;
+    if(delegate.is_pass == YES){
+        
+        [mutable_class_url appendString:class_url];
+        
+        delegate.class_url = mutable_class_url;
+    }else{
+        
+        NSDate *date = [NSDate date];
+        int month = [[[self dateFormatter] stringFromDate:date] intValue];
+        int year = [[[self dateFormatter2] stringFromDate:date] intValue];
+        
+        int now_year = 0;
+        
+        if (month<3) {
+            now_year = year -1;
+        }else{
+            now_year = year;
+        }
+        
+         NSString *frame_str1 = @"/modules/cafe/class/index.jsp?";
+         NSString *frame_str2 = [NSString stringWithFormat:@"&m_year=%d&m_code=G00800300300",now_year];
+        
+        int grade_num = [str_grade intValue];
+        int class_num = [str_class intValue];
+
+         //
+         frame_str2 = [NSString stringWithFormat:@"%@%d00%d",frame_str2,grade_num+1, class_num+1];
+         [mutable_class_url appendString:frame_str1];
+         [mutable_class_url appendString:delegate.school_code];
+         [mutable_class_url appendString:frame_str2];
+        
+        delegate.class_url = mutable_class_url;
+
+    }
+ 
+}
+
+
+- (NSDateFormatter *)dateFormatter2
+{
+    static NSDateFormatter *dateFormatter;
+    if(!dateFormatter){
+        dateFormatter = [NSDateFormatter new];
+        dateFormatter.dateFormat = @"Y";
+    }
     
+    return dateFormatter;
+}
+
+- (NSDateFormatter *)dateFormatter
+{
+    static NSDateFormatter *dateFormatter;
+    if(!dateFormatter){
+        dateFormatter = [NSDateFormatter new];
+        dateFormatter.dateFormat = @"MM";
+    }
     
+    return dateFormatter;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

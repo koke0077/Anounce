@@ -311,6 +311,8 @@
         startTag = @"어린이마당";
     }else if([HTML rangeOfString:@"학급 홈페이지,/"].length !=0){
         startTag = @"학급 홈페이지";
+    }else if([HTML rangeOfString:@"우리학급홈페이지"].length !=0){
+        startTag = @"우리학급홈페이지";
     }else if([HTML rangeOfString:@"우리반홈페이지"].length !=0){
         startTag = @"우리반홈페이지";
     }else{

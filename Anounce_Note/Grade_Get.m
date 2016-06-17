@@ -7,6 +7,7 @@
 //
 
 #import "Grade_Get.h"
+#import "AppDelegate.h"
 
 #define NSEUCKRStringEncoding -2147481280
 
@@ -400,35 +401,60 @@
     
     NSMutableDictionary *class_dic = [[NSMutableDictionary alloc]init];
     
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    
     NSString *sstt = [self devideString2:html];
     
     NSArray *grade_Arr = [self devideString3:sstt];
     
-    
-    // key = 학년, value = 반별 홈페이지 주소
-    for (int i = 0; i < 6; i++) {
+    if(grade_Arr.count != 0){
         
-        NSArray *arr = [self devideString4:[grade_Arr objectAtIndex:i]];
-        NSString *dic_key = [NSString stringWithFormat:@"%d학년",i+1];
-        [class_dic setObject:arr forKey:dic_key];
-    }
-    
-   /*
-    
-    for (int i=1; i<7; i++) {
-        tag_1 = [NSString stringWithFormat:@"[%d학년]",i];
+        delegate.is_pass = YES;
         
-        if (i < 6) {
-            tag_2 = [NSString stringWithFormat:@"[%d학년]",i+1];
+        // key = 학년, value = 반별 홈페이지 주소
+        for (int i = 0; i < 6; i++) {
             
-        }else{
-            tag_2 = @"</ul>";
+            NSArray *arr = [self devideString4:[grade_Arr objectAtIndex:i]];
+            NSString *dic_key = [NSString stringWithFormat:@"%d학년",i+1];
+            [class_dic setObject:arr forKey:dic_key];
         }
-        NSString *str = [self devideString:html TagStr1:tag_1 TagStr2:tag_2];
         
-        [class_arr addObject:str];
+        
+        
+       /*
+        for (int i=1; i<7; i++) {
+            tag_1 = [NSString stringWithFormat:@"[%d학년]",i];
+            
+            if (i < 6) {
+                tag_2 = [NSString stringWithFormat:@"[%d학년]",i+1];
+                
+            }else{
+                tag_2 = @"</ul>";
+            }
+            NSString *str = [self devideString:html TagStr1:tag_1 TagStr2:tag_2];
+            
+            [class_arr addObject:str];
+        }
+        
+        */
+    }else{
+        delegate.is_pass = NO;
+        
+        for (int i=1; i<7; i++) {
+            tag_1 = [NSString stringWithFormat:@"[%d학년]",i];
+            
+            if (i < 6) {
+                tag_2 = [NSString stringWithFormat:@"[%d학년]",i+1];
+                
+            }else{
+                tag_2 = @"</ul>";
+            }
+            NSString *str = [self devideString:html TagStr1:tag_1 TagStr2:tag_2];
+            
+            [class_arr addObject:str];
+        }
     }
-    */
+    [self.delegate compliteGetGradeClass2:class_arr];
     [self.delegate compliteGetGradeClass:class_dic];
 }
 

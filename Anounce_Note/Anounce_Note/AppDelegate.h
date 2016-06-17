@@ -28,6 +28,7 @@
 @property (strong, nonatomic) NSArray *food_array;
 @property (strong, nonatomic) NSDictionary *modi_dic;
 @property (strong, nonatomic) NSString *class_url;
+@property BOOL is_pass;
 
 @end
 
