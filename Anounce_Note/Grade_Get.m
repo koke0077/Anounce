@@ -454,8 +454,17 @@
             [class_arr addObject:str];
         }
     }
-    [self.delegate compliteGetGradeClass2:class_arr];
-    [self.delegate compliteGetGradeClass:class_dic];
+    
+    NSArray * allKeys = [class_dic allKeys];
+    NSLog(@"Count : %lu", (unsigned long)[allKeys count]);
+    
+    
+    
+    [self.delegate compliteGetGradeClass:class_dic classArr:class_arr];
+    
+    
+    
+   
 }
 
 @end

@@ -38,6 +38,8 @@
     int com_1;
     int com_2;
     
+    int dic_count;
+    
     NSArray *school_data;
 }
 
@@ -164,16 +166,27 @@
     
 }
 
--(void)compliteGetGradeClass:(NSDictionary *)cls_num{
+-(void)compliteGetGradeClass:(NSDictionary *)cls_num  classArr:(NSArray *)cls_arr{
     
     class_dic = cls_num;
+    class_arr = cls_arr;
     
-    arr1 = [class_dic objectForKey:@"1학년"];
-    arr2 = [class_dic objectForKey:@"2학년"];
-    arr3 = [class_dic objectForKey:@"3학년"];
-    arr4 = [class_dic objectForKey:@"4학년"];
-    arr5 = [class_dic objectForKey:@"5학년"];
-    arr6 = [class_dic objectForKey:@"6학년"];
+    if([class_dic allKeys].count == 0){
+        dic_count = 0;
+        
+    }else{
+                
+        dic_count = 1;
+                
+        arr1 = [class_dic objectForKey:@"1학년"];
+        arr2 = [class_dic objectForKey:@"2학년"];
+        arr3 = [class_dic objectForKey:@"3학년"];
+        arr4 = [class_dic objectForKey:@"4학년"];
+        arr5 = [class_dic objectForKey:@"5학년"];
+        arr6 = [class_dic objectForKey:@"6학년"];
+    }
+    
+    
     
     [self.picker reloadAllComponents];
     
@@ -237,56 +250,65 @@
         
         if ([save_class isEqualToString: @"1학년"]) {
             
-            com_2 = (int)arr1.count;
-            
-//            NSString *str = [class_arr objectAtIndex:0];
-//            com_2 = (int)str.length;
+            if(dic_count == 0){
+                NSString *str = [class_arr objectAtIndex:0];
+                com_2 = (int)str.length;
+            }else{
+                com_2 = (int)arr1.count;
+            }
             
             if (com_2 == 0)com_2=10;
 //            NSLog(@"%d",com_2);
         }else if ([save_class isEqualToString: @"2학년"]) {
             
-            com_2 = (int)arr2.count;
-
-//            NSString *str = [class_arr objectAtIndex:1];
-//            com_2 = (int)str.length;
+            if(dic_count == 0){
+                NSString *str = [class_arr objectAtIndex:1];
+                com_2 = (int)str.length;
+            }else{
+                com_2 = (int)arr2.count;
+            }
             
             if (com_2 == 0)com_2=10;
 //            NSLog(@"%d",com_2);
         }else if ([save_class isEqualToString: @"3학년"]) {
             
-            com_2 = (int)arr3.count;
-            
-//            NSString *str = [class_arr objectAtIndex:2];
-//            com_2 = (int)str.length;
+            if(dic_count == 0){
+                NSString *str = [class_arr objectAtIndex:2];
+                com_2 = (int)str.length;
+            }else{
+                com_2 = (int)arr3.count;
+            }
             
             if (com_2 == 0)com_2=10;
 //            NSLog(@"%d",com_2);
         }else if ([save_class isEqualToString: @"4학년"]) {
             
-            com_2 = (int)arr4.count;
-            
-//            NSString *str = [class_arr objectAtIndex:3];
-//            com_2 = (int)str.length;
+            if(dic_count == 0){
+                NSString *str = [class_arr objectAtIndex:3];
+                com_2 = (int)str.length;
+            }else{
+                com_2 = (int)arr4.count;
+            }
             
             if (com_2 == 0)com_2=10;
 //            NSLog(@"%d",com_2);
         }else if ([save_class isEqualToString: @"5학년"]) {
-            
-            com_2 = (int)arr5.count;
-            
-//            NSString *str = [class_arr objectAtIndex:4];
-//            com_2 = (int)str.length;
+            if(dic_count == 0){
+                NSString *str = [class_arr objectAtIndex:4];
+                com_2 = (int)str.length;
+            }else{
+                com_2 = (int)arr5.count;
+            }
             
             if (com_2 == 0)com_2=10;
 //            NSLog(@"%d",com_2);
         }else if ([save_class isEqualToString: @"6학년"]) {
-            
-            com_2 = (int)arr6.count;
-            
-//            NSString *str = [class_arr objectAtIndex:5];
-//            com_2 = (int)str.length;
-            
+            if(dic_count == 0){
+                NSString *str = [class_arr objectAtIndex:5];
+                com_2 = (int)str.length;
+            }else{
+                com_2 = (int)arr6.count;
+            }
             if (com_2 == 0)com_2=10;
 //            NSLog(@"%d",com_2);
         }

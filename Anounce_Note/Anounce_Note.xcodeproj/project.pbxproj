@@ -61,7 +61,7 @@
 		15CDE3AE1B0EAFED007496B4 /* basic_face.png in Resources */ = {isa = PBXBuildFile; fileRef = 15CDE3AD1B0EAFED007496B4 /* basic_face.png */; };
 		15CDE3B91B0EBF9C007496B4 /* Students_Face_Managert.m in Sources */ = {isa = PBXBuildFile; fileRef = 15CDE3B81B0EBF9C007496B4 /* Students_Face_Managert.m */; };
 		15D197841B2288700075053E /* item_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 15D197831B2288700075053E /* item_1.png */; };
-		15D5328F1CD31AFD00290689 /* school_data1.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 15D5328E1CD31AFD00290689 /* school_data1.sqlite */; };
+		15D5328F1CD31AFD00290689 /* school_data2.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 15D5328E1CD31AFD00290689 /* school_data2.sqlite */; };
 		15D58BB91B15942600F909E1 /* Student_School_Data.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 15D58BB81B15942600F909E1 /* Student_School_Data.sqlite */; };
 		15D58BBF1B159B4700F909E1 /* School_News_List.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D58BBE1B159B4700F909E1 /* School_News_List.m */; };
 		15D58BC21B159D6000F909E1 /* News_List_Get.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D58BC11B159D6000F909E1 /* News_List_Get.m */; };
@@ -182,7 +182,7 @@
 		15CDE3B71B0EBF9C007496B4 /* Students_Face_Managert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Students_Face_Managert.h; sourceTree = "<group>"; };
 		15CDE3B81B0EBF9C007496B4 /* Students_Face_Managert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Students_Face_Managert.m; sourceTree = "<group>"; };
 		15D197831B2288700075053E /* item_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item_1.png; sourceTree = "<group>"; };
-		15D5328E1CD31AFD00290689 /* school_data1.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = school_data1.sqlite; sourceTree = "<group>"; };
+		15D5328E1CD31AFD00290689 /* school_data2.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = school_data2.sqlite; sourceTree = "<group>"; };
 		15D58BB81B15942600F909E1 /* Student_School_Data.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Student_School_Data.sqlite; sourceTree = "<group>"; };
 		15D58BBD1B159B4700F909E1 /* School_News_List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = School_News_List.h; sourceTree = "<group>"; };
 		15D58BBE1B159B4700F909E1 /* School_News_List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = School_News_List.m; sourceTree = "<group>"; };
@@ -410,7 +410,7 @@
 		15F9FCD11AFF205A00D6E7D5 /* Sq_Data */ = {
 			isa = PBXGroup;
 			children = (
-				15D5328E1CD31AFD00290689 /* school_data1.sqlite */,
+				15D5328E1CD31AFD00290689 /* school_data2.sqlite */,
 				15D58BB81B15942600F909E1 /* Student_School_Data.sqlite */,
 			);
 			name = Sq_Data;
@@ -612,7 +612,7 @@
 				15F9FCC41AFDFD7A00D6E7D5 /* a_4@2x.png in Resources */,
 				15CA2C0F1B1DEF2700C2A41D /* 하동.png in Resources */,
 				157C81261C9EE54600E5A7CD /* send_mail.png in Resources */,
-				15D5328F1CD31AFD00290689 /* school_data1.sqlite in Resources */,
+				15D5328F1CD31AFD00290689 /* school_data2.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
