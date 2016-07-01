@@ -13,7 +13,7 @@
 
 @interface Food_Get (){
     
-     NSString *str[6][7];
+     NSString *str[7][8];
 }
 
 @property NSArray *day_cnt;

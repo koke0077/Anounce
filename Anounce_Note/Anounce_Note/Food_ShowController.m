@@ -114,12 +114,15 @@
 }
 
 -(void)compliteGetFood:(NSArray *)food_array{
+    self.food_arr = food_array;
+    [self.collection_View reloadData];
     
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return 35;
 }
+
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
