@@ -17,6 +17,7 @@
 - (IBAction)btn_back:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_region;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (unsafe_unretained, nonatomic) IBOutlet UIButton *add_btn;
 
 @end
 
@@ -25,6 +26,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.add_btn setImage:[UIImage imageNamed:@"add_btn.png"] forState:UIControlStateNormal];
+    [self.add_btn setBackgroundImage:[UIImage imageNamed:@"add_btn.png"] forState:UIControlStateNormal];
+    self.add_btn.layer.shadowColor = [UIColor grayColor].CGColor;
+    self.add_btn.layer.shadowOffset = CGSizeMake(15, 15);
+    self.add_btn.layer.shadowOpacity = 1.0;
+    self.add_btn.layer.shadowRadius = 3.0;
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
