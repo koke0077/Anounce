@@ -2282,7 +2282,7 @@
                   moduleName = "Anounce_Note"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/kimsungjun/Documents/Git/Anounce/Anounce_Note/Anounce_Note/Food_ShowController.m"
-                  timestampString = "489023180.419502"
+                  timestampString = "489490526.824381"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "93"
@@ -2297,7 +2297,7 @@
                   moduleName = "Anounce_Note"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/kimsungjun/Documents/Git/Anounce/Anounce_Note/Anounce_Note/Food_ShowController.m"
-                  timestampString = "489023180.419649"
+                  timestampString = "489490526.824519"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "94"
@@ -2352,6 +2352,22 @@
             startingLineNumber = "117"
             endingLineNumber = "117"
             landmarkName = "-compliteGetFood:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Food_Get.m"
+            timestampString = "489394482.218735"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "-parsingWithSchoolCode:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
