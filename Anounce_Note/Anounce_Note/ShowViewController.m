@@ -10,7 +10,10 @@
 #import "ShowViewContents.h"
 #import "Food_ShowController.h"
 
-@interface ShowViewController ()
+@interface ShowViewController (){
+    
+    Lms_List_Get *lms_get;
+}
 
 @property NSArray *data_arr;
 @property NSArray *url_arr;
@@ -53,7 +56,7 @@
     
     c_make.delegate = self;
     
-    Lms_List_Get *lms_get = [[Lms_List_Get alloc]init];
+    lms_get = [[Lms_List_Get alloc]init];
     
     lms_get.delegate = self;
     
@@ -69,7 +72,11 @@
     }else{
         //        [c_make parsing:url];
         
-        [lms_get nonLmsParsingUrl:url];
+//        [lms_get nonLmsParsingUrl:url];
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"학급정보 오류" message:@"새미학급과 더이상 연동하지 않습니다.\n 학급정보를 새로 등록하시면 제대로 동작합니다.\n 그래도 새미학급과 연동하기를 원하시면 확인을 눌러주세요." delegate:self cancelButtonTitle:@"취소" otherButtonTitles:@"확인", nil];
+        alertView.tag = 2;
+        [alertView show];
     }
 
 }
@@ -100,12 +107,12 @@
 -(void)CompliteParsingKey:(NSString *)key Value:(NSString *)value Lms_URl:(NSString *)lms_url{
 //    NSLog(@"key = %@ \n, vlaue = %@ \n, lms_url = %@", key, value, lms_url);
     
-    Lms_List_Get *lms_get = [[Lms_List_Get alloc]init];
+    Lms_List_Get *lms_get2 = [[Lms_List_Get alloc]init];
     
-    lms_get.delegate = self;
+    lms_get2.delegate = self;
     
 //    [lms_get parsingWithUserToken:key Value:value Url:lms_url];
-    [lms_get nonLmsParsingUrl:lms_url];
+    [lms_get2 nonLmsParsingUrl:lms_url];
 }
 
 -(void)compliteLmsParsingWithUrl_Array:(NSArray *)url_arr Tilte_Array:(NSArray *)title_array{
@@ -136,6 +143,14 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0 && alertView.tag == 1) {
         [self.navigationController popViewControllerAnimated:YES];
+    }else if(buttonIndex == 0 && alertView.tag == 2){
+        [self.navigationController popViewControllerAnimated:YES];
+    }else if(buttonIndex == 1 && alertView.tag == 2){
+        
+        NSString *url = [student_dic objectForKey:@"note_url"];
+        
+        [lms_get nonLmsParsingUrl:url];
+        
     }
 }
 

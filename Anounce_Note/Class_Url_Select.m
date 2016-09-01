@@ -121,8 +121,9 @@
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection{
     
-    NSString *htmlData = [[NSString alloc] initWithData:self.receiveData encoding:NSEUCKRStringEncoding];
+   // NSString *htmlData = [[NSString alloc] initWithData:self.receiveData encoding:NSEUCKRStringEncoding];
 
+    /*
 //    int contain_num = (int)[htmlData rangeOfString:@"알림장"].length;
     int contain_num = (int)[htmlData rangeOfString:@"http://lms.gnedu.net"].length;
     int contain_num2 = (int)[htmlData rangeOfString:@"http://lms.gnedu.net/mr_classroom/"].length;
@@ -138,6 +139,8 @@
         [self.delegate completeClassParsing:self.note_url Is_On:YES];
 //        [self.delegate completeClassParsing:[self devideHTMLSring2:htmlData] Is_On:NO];
     }
+    */
+     [self.delegate completeClassParsing:self.note_url Is_On:YES];
     
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
