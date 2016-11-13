@@ -63,8 +63,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "233"
             endingLineNumber = "233"
-            landmarkName = "-tableView:commitEditingStyle:forRowAtIndexPath:"
-            landmarkType = "5">
+            landmarkName = "-imageByCropping:toRect:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -768,7 +768,7 @@
             startingLineNumber = "149"
             endingLineNumber = "149"
             landmarkName = "-getSchoolCount"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -800,7 +800,7 @@
             startingLineNumber = "375"
             endingLineNumber = "375"
             landmarkName = "-exist_School:Region:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -816,7 +816,7 @@
             startingLineNumber = "331"
             endingLineNumber = "331"
             landmarkName = "-exist_RegionName:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -832,7 +832,7 @@
             startingLineNumber = "299"
             endingLineNumber = "299"
             landmarkName = "-exist_SchoolName:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -848,7 +848,7 @@
             startingLineNumber = "145"
             endingLineNumber = "145"
             landmarkName = "-getSchoolCount"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -976,7 +976,7 @@
             startingLineNumber = "94"
             endingLineNumber = "94"
             landmarkName = "-upDateWithName:School:Grade:Class:School_Url:Food_Url:Note_Url:News_Url:RowId:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2080,7 +2080,7 @@
             startingLineNumber = "41"
             endingLineNumber = "41"
             landmarkName = "-initDB"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2096,7 +2096,7 @@
             startingLineNumber = "39"
             endingLineNumber = "39"
             landmarkName = "-initDB"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2112,7 +2112,7 @@
             startingLineNumber = "44"
             endingLineNumber = "44"
             landmarkName = "-initDB"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

@@ -403,7 +403,10 @@
     
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
+    
+    //년도별 학년과 반 분리하기
     NSString *sstt = [self devideString2:html];
+    
     
     NSArray *grade_Arr = [self devideString3:sstt];
     

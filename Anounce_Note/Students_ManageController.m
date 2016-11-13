@@ -172,9 +172,14 @@
         [self.cameraController setSourceType:UIImagePickerControllerSourceTypeCamera];
         [self.cameraController setShowsCameraControls:YES];
         [self.cameraController setEditing:YES];
-
         
-        self.cameraController.modalPresentationStyle = UIModalPresentationCurrentContext;
+        CGAffineTransform transform = CGAffineTransformMakeTranslation(0.0f, 50.0f);
+        transform = CGAffineTransformScale(transform, 1.2f, 1.2f);
+        self.cameraController.cameraViewTransform = transform;
+//        imagePicker.cameraViewTransform = transform;
+
+//      self.cameraController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height*0.8);
+        //self.cameraController.modalPresentationStyle = UIModalPresentationCurrentContext;
         
         [self presentViewController:self.cameraController animated:YES completion:nil];
         

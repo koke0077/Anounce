@@ -24,6 +24,7 @@
 		157C81241C9EE3A500E5A7CD /* question.png in Resources */ = {isa = PBXBuildFile; fileRef = 157C81231C9EE3A500E5A7CD /* question.png */; };
 		157C81261C9EE54600E5A7CD /* send_mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 157C81251C9EE54600E5A7CD /* send_mail.png */; };
 		159D29E81B1CAA03001CB783 /* bg_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 159D29E71B1CAA03001CB783 /* bg_1.png */; };
+		15BE04A21DD5E9DA00A0A46D /* school_data3.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 15BE04A11DD5E9DA00A0A46D /* school_data3.sqlite */; };
 		15C9992A1B08626C00A9D2EF /* Class_Url_Select.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C999291B08626C00A9D2EF /* Class_Url_Select.m */; };
 		15C9992D1B0865E200A9D2EF /* Class_Url_Make.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C9992C1B0865E200A9D2EF /* Class_Url_Make.m */; };
 		15CA2BEF1B1D72CE00C2A41D /* 삼베.png in Resources */ = {isa = PBXBuildFile; fileRef = 15CA2BEE1B1D72CE00C2A41D /* 삼베.png */; };
@@ -131,6 +132,7 @@
 		157C81231C9EE3A500E5A7CD /* question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question.png; sourceTree = "<group>"; };
 		157C81251C9EE54600E5A7CD /* send_mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = send_mail.png; sourceTree = "<group>"; };
 		159D29E71B1CAA03001CB783 /* bg_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_1.png; sourceTree = "<group>"; };
+		15BE04A11DD5E9DA00A0A46D /* school_data3.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = school_data3.sqlite; sourceTree = "<group>"; };
 		15C999281B08626C00A9D2EF /* Class_Url_Select.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Class_Url_Select.h; sourceTree = "<group>"; };
 		15C999291B08626C00A9D2EF /* Class_Url_Select.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Class_Url_Select.m; sourceTree = "<group>"; };
 		15C9992B1B0865E200A9D2EF /* Class_Url_Make.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Class_Url_Make.h; sourceTree = "<group>"; };
@@ -410,6 +412,7 @@
 		15F9FCD11AFF205A00D6E7D5 /* Sq_Data */ = {
 			isa = PBXGroup;
 			children = (
+				15BE04A11DD5E9DA00A0A46D /* school_data3.sqlite */,
 				15D5328E1CD31AFD00290689 /* school_data2.sqlite */,
 				15D58BB81B15942600F909E1 /* Student_School_Data.sqlite */,
 			);
@@ -541,9 +544,11 @@
 					15EC48BD1AFDC794002D75F8 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = X2M45VLTRW;
+						ProvisioningStyle = Automatic;
 					};
 					15EC48D61AFDC794002D75F8 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = X2M45VLTRW;
 						TestTargetID = 15EC48BD1AFDC794002D75F8;
 					};
 				};
@@ -603,6 +608,7 @@
 				15CA2BEF1B1D72CE00C2A41D /* 삼베.png in Resources */,
 				156545E61B219C560010EDA4 /* bg_4.png in Resources */,
 				15792FBF1CA7E406004F7E40 /* bg_1_1.png in Resources */,
+				15BE04A21DD5E9DA00A0A46D /* school_data3.sqlite in Resources */,
 				15CA2C0E1B1DEF2700C2A41D /* 남해.png in Resources */,
 				15CDE3AE1B0EAFED007496B4 /* basic_face.png in Resources */,
 				15CA2C111B1DEF2700C2A41D /* 밀양.png in Resources */,
@@ -732,10 +738,11 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: sung jun kim (X2M45VLTRW)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: sung jun kim (X2M45VLTRW)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = X2M45VLTRW;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -778,10 +785,11 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: sung jun kim (X2M45VLTRW)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: sung jun kim (X2M45VLTRW)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = X2M45VLTRW;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -804,14 +812,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: sung jun kim (X2M45VLTRW)";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = X2M45VLTRW;
 				INFOPLIST_FILE = Anounce_Note/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.koke007.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -819,14 +829,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: sung jun kim (X2M45VLTRW)";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = X2M45VLTRW;
 				INFOPLIST_FILE = Anounce_Note/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.koke007.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
