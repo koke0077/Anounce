@@ -291,6 +291,7 @@
     
 }
 
+// 문제 발생 2016. 12.22 
 -(NSArray *)devideString4:(NSString *)HTML{
     // 3월 26일 수정
     NSString *startTag = @"\"school_ban\"";

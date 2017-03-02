@@ -15,13 +15,13 @@ static sqlite3 *database = nil;
 - (NSString *)getDBPath {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory , NSUserDomainMask, YES);
     NSString *documentsDir = [paths objectAtIndex:0];
-    return [documentsDir stringByAppendingPathComponent:@"school_data3.sqlite"];
+    return [documentsDir stringByAppendingPathComponent:@"school_data4.sqlite"];
 }
 
 - (NSArray*)loadDataWithSchool:(NSString *)schoolname{
     
     NSString *data_document = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
-    NSString *data_Path = [data_document stringByAppendingPathComponent:@"school_data3.sqlite"];
+    NSString *data_Path = [data_document stringByAppendingPathComponent:@"school_data4.sqlite"];
     
     if (sqlite3_open([data_Path UTF8String], &database)) {
         sqlite3_close(database);
@@ -57,7 +57,7 @@ static sqlite3 *database = nil;
 - (NSArray*)loadDataWithSchool2:(NSString *)region{
     
     NSString *data_document = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
-    NSString *data_Path = [data_document stringByAppendingPathComponent:@"school_data3.sqlite"];
+    NSString *data_Path = [data_document stringByAppendingPathComponent:@"school_data4.sqlite"];
     
     if (sqlite3_open([data_Path UTF8String], &database)) {
         sqlite3_close(database);
@@ -92,7 +92,7 @@ static sqlite3 *database = nil;
 - (NSString*)loadDataWithSchool_Url:(NSString *)schoolname{
     
     NSString *data_document = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
-    NSString *data_Path = [data_document stringByAppendingPathComponent:@"school_data3.sqlite"];
+    NSString *data_Path = [data_document stringByAppendingPathComponent:@"school_data4.sqlite"];
     
     if (sqlite3_open([data_Path UTF8String], &database)) {
         sqlite3_close(database);
@@ -128,7 +128,7 @@ static sqlite3 *database = nil;
 -(int)getSchoolCount{
     
     NSString *data_document = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
-    NSString *data_Path = [data_document stringByAppendingPathComponent:@"school_data3.sqlite"];
+    NSString *data_Path = [data_document stringByAppendingPathComponent:@"school_data4.sqlite"];
     
     if (sqlite3_open([data_Path UTF8String], &database)) {
         sqlite3_close(database);
@@ -165,7 +165,7 @@ static sqlite3 *database = nil;
 - (NSArray*)loadAllDataWithSchool:(NSString *)schoolname{
     
     NSString *data_document = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
-    NSString *data_Path = [data_document stringByAppendingPathComponent:@"school_data3.sqlite"];
+    NSString *data_Path = [data_document stringByAppendingPathComponent:@"school_data4.sqlite"];
     
     if (sqlite3_open([data_Path UTF8String], &database)) {
         sqlite3_close(database);
@@ -208,7 +208,7 @@ static sqlite3 *database = nil;
             Web_Address:(NSString *)web_address{
     
     NSString *data_document = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
-    NSString *data_Path = [data_document stringByAppendingPathComponent:@"school_data3.sqlite"];
+    NSString *data_Path = [data_document stringByAppendingPathComponent:@"school_data4.sqlite"];
     
     if (sqlite3_open([data_Path UTF8String], &database)) {
         sqlite3_close(database);
@@ -248,7 +248,7 @@ static sqlite3 *database = nil;
          Web_Address:(NSString *)web_address{
     
     NSString *data_document = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
-    NSString *data_Path = [data_document stringByAppendingPathComponent:@"school_data3.sqlite"];
+    NSString *data_Path = [data_document stringByAppendingPathComponent:@"school_data4.sqlite"];
     
     if (sqlite3_open([data_Path UTF8String], &database)) {
         sqlite3_close(database);
@@ -281,7 +281,7 @@ static sqlite3 *database = nil;
 -(int)exist_SchoolName:(NSString *)name{
     
     NSString *data_document = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
-    NSString *data_Path = [data_document stringByAppendingPathComponent:@"school_data3.sqlite"];
+    NSString *data_Path = [data_document stringByAppendingPathComponent:@"school_data4.sqlite"];
     
     if (sqlite3_open([data_Path UTF8String], &database)) {
         sqlite3_close(database);
@@ -320,7 +320,7 @@ static sqlite3 *database = nil;
     
     
     NSString *data_document = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
-    NSString *data_Path = [data_document stringByAppendingPathComponent:@"school_data3.sqlite"];
+    NSString *data_Path = [data_document stringByAppendingPathComponent:@"school_data4.sqlite"];
     
     if (sqlite3_open([data_Path UTF8String], &database)) {
         sqlite3_close(database);
@@ -358,7 +358,7 @@ static sqlite3 *database = nil;
     
     
     NSString *data_document = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
-    NSString *data_Path = [data_document stringByAppendingPathComponent:@"school_data3.sqlite"];
+    NSString *data_Path = [data_document stringByAppendingPathComponent:@"school_data4.sqlite"];
     
     if (sqlite3_open([data_Path UTF8String], &database)) {
         sqlite3_close(database);

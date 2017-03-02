@@ -17,6 +17,7 @@
 #import "School_News_List.h"
 #include <dispatch/dispatch.h>
 #import "Students_ManageController.h"
+#import "NoticeViewController.h"
 
 
 @interface ViewController (){
@@ -38,6 +39,7 @@
     Edu_News_List *edu_list;
     int page;
     BOOL is_new;
+    
 }
 @property (weak, nonatomic) IBOutlet UILabel *lbl_title;
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
@@ -46,13 +48,17 @@
 @property NSMutableArray *terminalViews;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @property (weak, nonatomic) IBOutlet UIButton *back_btn;
+@property (weak, nonatomic) IBOutlet UIButton *next_btn;
 @property UIActivityIndicatorView *indicator;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_page;
 @property UILabel *loading;
 @property UIView *indi_view;
+@property UIButton *reload_btn;
+@property NoticeViewController *notice_view;
 - (IBAction)reload_btn:(UIButton *)sender;
 - (IBAction)btn_BackNew:(UIButton *)sender;
 - (IBAction)btn_NextNew:(UIButton *)sender;
+- (IBAction)btn_info:(UIButton *)sender;
 
 @end
 
@@ -84,31 +90,106 @@ NSInteger const SMEPGiPadViewControllerCellWidth = 300;
         [alertView show];
     }
     
-    self.tableview.delegate = self;
-    self.tableview.dataSource = self;
-    
-    edu_list = [[Edu_News_List alloc]init];
-    
-    edu_list.delegate = self;
-    
-    [self indi_start];
-    
-    [edu_list parsingWithEduNewsWith:@"http://news.gne.go.kr/allBoard.do?type=news&page=1&mcode=XM1401070728004&viewType=Y&addDay=24&boardseq=boardEJ1400460249735&recoType=N"];
-    
-    page = 1;
-    
-    self.lbl_page.text = [NSString stringWithFormat:@"%d",page];
-    
-    self.back_btn.hidden = YES;
-    
     s_data = [[Students_Data_Manager alloc]init];
     f_data = [[Students_Face_Managert alloc]init];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
+    
+    self.tableview.delegate = self;
+    self.tableview.dataSource = self;
+    edu_list = [[Edu_News_List alloc]init];
+    edu_list.delegate = self;
+    self.back_btn.hidden = YES;
+    self.next_btn.hidden = YES;
+    self.lbl_page.hidden = YES;
+    
+
+    self.reload_btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    self.reload_btn.frame = CGRectMake(self.view.frame.size.width/2-100, self.view.frame.size.height-self.view.frame.size.height/4, 200, 50);
+    [self.view addSubview:self.reload_btn];
+    self.reload_btn.backgroundColor = [UIColor grayColor];
+//    self.reload_btn.titleLabel.text = @"경남교육뉴스 불러오기";
+//    self.reload_btn.titleLabel.font = [UIFont fontWithName:@"System-Bold" size:20];
+    UILabel *lbl = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.reload_btn.frame.size.width, self.reload_btn.frame.size.height)];
+    lbl.text = @"경남교육뉴스 불러오기";
+    lbl.font = [UIFont fontWithName:@"System-Bold" size:20];
+    lbl.textColor = [UIColor whiteColor];
+    lbl.textAlignment = 1;
+    [self.reload_btn addSubview:lbl];
+    [self.reload_btn addTarget:self action:@selector(show_news) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    /*
+    [self indi_start];
+   
+    
+    NSString *url_str = @"http://news.gne.go.kr/allBoard.do?type=news&page=1&mcode=XM1401070728004&viewType=Y&addDay=24&boardseq=boardEJ1400460249735&recoType=N";
+    [edu_list parsingWithEduNewsWith:url_str];
+    page = 1;
+    
+    self.lbl_page.text = [NSString stringWithFormat:@"%d",page];
+    */
     dQueue = dispatch_queue_create("test", NULL);
     
     [NSThread detachNewThreadSelector:@selector(thread_2) toTarget:self withObject:nil];
+}
+
+-(void)show_Notice{
+    
+    self.notice_view = [[NoticeViewController alloc]init];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    //    Add_DataViewController *add_view = [storyboard instantiateViewControllerWithIdentifier:@"Add_Data"];
+    
+    self.notice_view = [storyboard instantiateViewControllerWithIdentifier:@"Notice"];
+    
+    [self.view addSubview:self.notice_view.view];
+    
+//    self.notice_view.view.frame = CGRectMake(self.view.frame.size.width/2-150, self.view.frame.size.height/2-150, 300, 300);
+    self.notice_view.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    
+    NSLog(@"%f, %f, %f, %f", self.notice_view.view.frame.size.width, self.notice_view.view.frame.size.height, self.notice_view.view.frame.origin.x, self.notice_view.view.frame.origin.y);
+    
+//    self.tableview.userInteractionEnabled = NO;
+//    self.collectionView.userInteractionEnabled = NO;
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    UITouch *touch = [touches anyObject];
+    
+    if([self.notice_view.view isDescendantOfView:self.view] == true){
+        
+        if([touch locationInView:self.view].x != 0.0f || [touch locationInView:self.tableview].x != 0.0f){
+            NSLog(@"touch!!!");
+        }
+    }else{
+//        self.tableview.userInteractionEnabled = YES;
+//        self.collectionView.userInteractionEnabled = YES;
+    }
+
+    
+}
+
+
+
+-(void) show_news{
+    
+    [self indi_start];
+    [self.reload_btn removeFromSuperview];
+    
+    NSString *url_str = @"http://news.gne.go.kr/allBoard.do?type=news&page=1&mcode=XM1401070728004&viewType=Y&addDay=24&boardseq=boardEJ1400460249735&recoType=N";
+    [edu_list parsingWithEduNewsWith:url_str];
+    page = 1;
+    
+    self.lbl_page.text = [NSString stringWithFormat:@"%d",page];
+    
+    self.next_btn.hidden = NO;
+    self.lbl_page.hidden = NO;
+
+    
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -341,6 +422,16 @@ NSInteger const SMEPGiPadViewControllerCellWidth = 300;
     
     [super viewWillAppear:YES];
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int notice_num = 0;
+    notice_num = (int)[defaults integerForKey:@"notice"];
+    if( notice_num == 1){
+        
+    }else{
+        [self show_Notice];
+    }
+    
+    
     NSString *view_1_H = [NSString stringWithFormat:@"H:[view1(%d)]", (int)self.view.frame.size.width];
     NSString *view_1_V = [NSString stringWithFormat:@"V:[view1(%d)]", (int)self.view.frame.size.height/3+50];
     
@@ -384,6 +475,17 @@ NSInteger const SMEPGiPadViewControllerCellWidth = 300;
     [self thread_2];
     
     [thread start];
+    
+    
+    if([self.reload_btn isDescendantOfView:self.view] == true){
+        
+    }else{
+        NSString *url_str = @"http://news.gne.go.kr/allBoard.do?type=news&page=1&mcode=XM1401070728004&viewType=Y&addDay=24&boardseq=boardEJ1400460249735&recoType=N";
+        [edu_list parsingWithEduNewsWith:url_str];
+        page = 1;
+        self.lbl_page.text = [NSString stringWithFormat:@"%d",page];
+        self.next_btn.hidden = NO;
+    }
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
@@ -504,12 +606,21 @@ NSInteger const SMEPGiPadViewControllerCellWidth = 300;
     
 }
 
+- (IBAction)btn_info:(UIButton *)sender {
+    
+    if([self.notice_view.view isDescendantOfView:self.view] == true){
+        
+    }else{
+         [self show_Notice];
+    }
+}
+
+
 - (void)replaceTopConstraintOnView:(UIView *)view withConstant:(float)constant
 {
     [self.view.constraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *constraint, NSUInteger idx, BOOL *stop) {
         if ((constraint.firstItem == view) && (constraint.firstAttribute == NSLayoutAttributeLeading)) {
             constraint.constant = constant;
-            
 //            NSLog(@"size = %f", self.view_1.frame.size.width);
         }
     }];

@@ -54,8 +54,8 @@
 //    delegate.school_grade = [delegate.school_grade stringByReplacingOccurrencesOfString:@"학년" withString:@""];
 //    delegate.school_class = [delegate.school_class stringByReplacingOccurrencesOfString:@"반" withString:@""];
     
-    int grade_num = [delegate.school_grade intValue];
-    int class_num = [delegate.school_class intValue];
+//    int grade_num = [delegate.school_grade intValue];
+//    int class_num = [delegate.school_class intValue];
     
     //3월 26일 수정
     NSDate *date = [NSDate date];

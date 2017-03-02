@@ -38,7 +38,7 @@
     
     
     if (a<3) {
-        b -=1;
+//        b -=1;
     }
     
     NSString *food_url;

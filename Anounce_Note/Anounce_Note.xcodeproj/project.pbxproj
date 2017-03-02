@@ -95,6 +95,8 @@
 		15F9FCE01AFFAABF00D6E7D5 /* Students_ManageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9FCDF1AFFAABF00D6E7D5 /* Students_ManageController.m */; };
 		15F9FCE51B00A7BD00D6E7D5 /* Students_Data_Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9FCE41B00A7BD00D6E7D5 /* Students_Data_Manager.m */; };
 		15F9FCED1B00EB7600D6E7D5 /* NoteURL_Make.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9FCEC1B00EB7600D6E7D5 /* NoteURL_Make.m */; };
+		85A6ECD31E67E67C00FC67BA /* school_data4.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 85A6ECD21E67E67C00FC67BA /* school_data4.sqlite */; };
+		85F5A00A1E470BDD0022FF79 /* NoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F5A0091E470BDD0022FF79 /* NoticeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -243,6 +245,9 @@
 		15F9FCE41B00A7BD00D6E7D5 /* Students_Data_Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Students_Data_Manager.m; sourceTree = "<group>"; };
 		15F9FCEB1B00EB7600D6E7D5 /* NoteURL_Make.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteURL_Make.h; sourceTree = "<group>"; };
 		15F9FCEC1B00EB7600D6E7D5 /* NoteURL_Make.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteURL_Make.m; sourceTree = "<group>"; };
+		85A6ECD21E67E67C00FC67BA /* school_data4.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = school_data4.sqlite; sourceTree = "<group>"; };
+		85F5A0081E470BDD0022FF79 /* NoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeViewController.h; sourceTree = "<group>"; };
+		85F5A0091E470BDD0022FF79 /* NoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -368,6 +373,8 @@
 				15D58BBE1B159B4700F909E1 /* School_News_List.m */,
 				15F6ED941B14DA1E00589B86 /* EduNewsShow.h */,
 				15F6ED951B14DA1E00589B86 /* EduNewsShow.m */,
+				85F5A0081E470BDD0022FF79 /* NoticeViewController.h */,
+				85F5A0091E470BDD0022FF79 /* NoticeViewController.m */,
 				15EC48C81AFDC794002D75F8 /* ViewController.h */,
 				15EC48C91AFDC794002D75F8 /* ViewController.m */,
 				15EC48C51AFDC794002D75F8 /* AppDelegate.h */,
@@ -412,6 +419,7 @@
 		15F9FCD11AFF205A00D6E7D5 /* Sq_Data */ = {
 			isa = PBXGroup;
 			children = (
+				85A6ECD21E67E67C00FC67BA /* school_data4.sqlite */,
 				15BE04A11DD5E9DA00A0A46D /* school_data3.sqlite */,
 				15D5328E1CD31AFD00290689 /* school_data2.sqlite */,
 				15D58BB81B15942600F909E1 /* Student_School_Data.sqlite */,
@@ -538,7 +546,7 @@
 		15EC48B61AFDC793002D75F8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "kimsung jun";
 				TargetAttributes = {
 					15EC48BD1AFDC794002D75F8 = {
@@ -597,6 +605,7 @@
 				15CA2C0A1B1DEF2700C2A41D /* 합천.png in Resources */,
 				15CA2C131B1DEF2700C2A41D /* 사천.png in Resources */,
 				15CA2C141B1DEF2700C2A41D /* 거제.png in Resources */,
+				85A6ECD31E67E67C00FC67BA /* school_data4.sqlite in Resources */,
 				152BD9371CA91646001CF4CB /* QnA.png in Resources */,
 				157C81241C9EE3A500E5A7CD /* question.png in Resources */,
 				15ECBB031C985F9D0082A58D /* eduitlab_logo.png in Resources */,
@@ -673,6 +682,7 @@
 				15CB54FF1B02DB9100A84CC8 /* Add_Grade_Class.m in Sources */,
 				15F694CB1CD0DF9A00BE6D78 /* Grade_Get_2.m in Sources */,
 				15CB55051B03310C00A84CC8 /* SchoolCode_FoodURL_Make.m in Sources */,
+				85F5A00A1E470BDD0022FF79 /* NoticeViewController.m in Sources */,
 				15F9FCE51B00A7BD00D6E7D5 /* Students_Data_Manager.m in Sources */,
 				15CB54761B0B869C00EDC4FA /* Get_Note_List_2.m in Sources */,
 				15EC48C71AFDC794002D75F8 /* AppDelegate.m in Sources */,
@@ -734,8 +744,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -781,8 +793,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

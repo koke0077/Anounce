@@ -492,8 +492,12 @@
         self.food_url = [self devideHTMLSringfood:htmlData];
     }
     
+    if([self.sch_url rangeOfString:@"ganam"].length !=0){
+        self.school_code = @"S100003883";
+    }else{
+        self.school_code = [self devideHTMLSring2:htmlData];
+    }
     
-    self.school_code = [self devideHTMLSring2:htmlData];
     
     self.school_code_nonCode =[self remove_Scode:self.school_code];
     
@@ -513,7 +517,7 @@
     // 학교홈페이지에서 학급 홈페이지를 열거해 놓은 페이지가 없어 학급홈페이지 전체를 보여주는 페이지를 뽑아내는 과정을 생략하였다.
     // delegate에 변수를 하나 만들어 위의 페이지가 없을 경우에 대한 플래그로 활용한다. 즉 Grade_Get 클래스에서 delegate 변수를 이용해 학급홈페이지를 안내하는 페이지가 있는 경우와 없는 경우에 대한 분기를 달리하여 학년에 따른 학급의 수를 셀 수 있도록 한다.
     
-    if([htmlData rangeOfString:@"반선택"].length ==0 || [htmlData rangeOfString:@"학급홈페이지"].length !=0){
+    if([htmlData rangeOfString:@"반선택"].length ==0 || [htmlData rangeOfString:@"학급홈페이지"].length !=0 || [htmlData rangeOfString:@"학급마당"].length !=0){
         [now_class appendString:@"&mnu="];
         [now_class appendString:[self devideHTMLSringClass:htmlData]];
         

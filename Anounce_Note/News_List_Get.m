@@ -189,6 +189,8 @@
         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"&quot;" withString:@""];
         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"\r" withString:@""];
         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"&lt;" withString:@" "];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"&gt;" withString:@" "];
         [HTMLList addObject:rangeBlock];
 //        NSLog(@"range %@", rangeBlock);
     }

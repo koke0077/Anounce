@@ -24,6 +24,8 @@
     UIButton *btn_3;
     UIButton *btn_4;
     
+    BOOL is_hwp;
+    
 }
 @property (weak, nonatomic) IBOutlet UILabel *lbl_title;
 @property (weak, nonatomic) IBOutlet UITextView *txt_contents;
@@ -216,38 +218,51 @@
     [stringURL2 appendString:[files_arr objectAtIndex:0]];
     
     NSURL  *url = [NSURL URLWithString:stringURL2];
-    
-    //    [[UIApplication sharedApplication]openURL:url];
-    
+    BOOL is_confirm_hwp = [self is_contain_hwp:stringURL2];
+    if(is_confirm_hwp == false){
+        [[UIApplication sharedApplication]openURL:url];
+    }else{
+
     NSData *urlData = [NSData dataWithContentsOfURL:url];
     if ( urlData )
-    {
-        NSArray       *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString  *documentsDirectory = [paths objectAtIndex:0];
+        {
+            NSArray       *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSString  *documentsDirectory = [paths objectAtIndex:0];
         
-        NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",@"test"]];
+            NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",@"test"]];
         
-        BOOL isWrite = [urlData writeToFile:filePath atomically:YES];
+            BOOL isWrite = [urlData writeToFile:filePath atomically:YES];
         
-        NSString *tempFilePath;
+            NSString *tempFilePath;
         
-        if(isWrite){
-            tempFilePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",@"test"]];
-        }
+            if(isWrite){
+                tempFilePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",@"test"]];
+            }
         
-        NSURL *resultURL = [NSURL fileURLWithPath:tempFilePath];
+            NSURL *resultURL = [NSURL fileURLWithPath:tempFilePath];
         
-        self.documentInteractionCntroller = [UIDocumentInteractionController interactionControllerWithURL:resultURL];
-        self.documentInteractionCntroller.delegate = self;
-        [self.documentInteractionCntroller presentOptionsMenuFromRect:CGRectZero inView:self.view animated:YES];
+            self.documentInteractionCntroller = [UIDocumentInteractionController interactionControllerWithURL:resultURL];
+            self.documentInteractionCntroller.delegate = self;
+            [self.documentInteractionCntroller presentOptionsMenuFromRect:CGRectZero inView:self.view animated:YES];
         //
         
-        [self.indicator stopAnimating];
-        [self.indi_view removeFromSuperview];
-        [self.loading setHidden:YES];
+            [self.indicator stopAnimating];
+            [self.indi_view removeFromSuperview];
+            [self.loading setHidden:YES];
+        }
     }
     
+}
+
+-(BOOL)is_contain_hwp:(NSString *)url{
     
+    if([url rangeOfString:@"hwp"].location == NSNotFound){
+        is_hwp = false;
+    }else{
+        is_hwp = true;
+    }
+    
+    return is_hwp;
 }
 
 -(void)subtracTime2{
@@ -255,37 +270,40 @@
     [stringURL2 appendString:[files_arr objectAtIndex:1]];
     
     NSURL  *url = [NSURL URLWithString:stringURL2];
-    
-    //    [[UIApplication sharedApplication]openURL:url];
-    
-    NSData *urlData = [NSData dataWithContentsOfURL:url];
-    if ( urlData )
-    {
-        NSArray       *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString  *documentsDirectory = [paths objectAtIndex:0];
-        
-        NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",@"test"]];
-        
-        BOOL isWrite = [urlData writeToFile:filePath atomically:YES];
-        
-        NSString *tempFilePath;
-        
-        if(isWrite){
-            tempFilePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",@"test"]];
+    BOOL is_confirm_hwp = [self is_contain_hwp:stringURL2];
+    if(is_confirm_hwp == false){
+         [[UIApplication sharedApplication]openURL:url];
+    }else{
+     
+        NSData *urlData = [NSData dataWithContentsOfURL:url];
+        if ( urlData )
+        {
+            NSArray       *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSString  *documentsDirectory = [paths objectAtIndex:0];
+            
+            NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",@"test"]];
+            
+            BOOL isWrite = [urlData writeToFile:filePath atomically:YES];
+            
+            NSString *tempFilePath;
+            
+            if(isWrite){
+                tempFilePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",@"test"]];
+            }
+            
+            NSURL *resultURL = [NSURL fileURLWithPath:tempFilePath];
+            
+            self.documentInteractionCntroller = [UIDocumentInteractionController interactionControllerWithURL:resultURL];
+            self.documentInteractionCntroller.delegate = self;
+            [self.documentInteractionCntroller presentOptionsMenuFromRect:CGRectZero inView:self.view animated:YES];
+            //
+            
+            [self.indicator stopAnimating];
+            [self.indi_view removeFromSuperview];
+            [self.loading setHidden:YES];
         }
         
-        NSURL *resultURL = [NSURL fileURLWithPath:tempFilePath];
-        
-        self.documentInteractionCntroller = [UIDocumentInteractionController interactionControllerWithURL:resultURL];
-        self.documentInteractionCntroller.delegate = self;
-        [self.documentInteractionCntroller presentOptionsMenuFromRect:CGRectZero inView:self.view animated:YES];
-        //
-        
-        [self.indicator stopAnimating];
-        [self.indi_view removeFromSuperview];
-        [self.loading setHidden:YES];
     }
-    
     
 }
 
@@ -294,37 +312,40 @@
     [stringURL2 appendString:[files_arr objectAtIndex:2]];
     
     NSURL  *url = [NSURL URLWithString:stringURL2];
-    
-    //    [[UIApplication sharedApplication]openURL:url];
+    BOOL is_confirm_hwp = [self is_contain_hwp:stringURL2];
+    if(is_confirm_hwp == false){
+        [[UIApplication sharedApplication]openURL:url];
+    }else{
+
     
     NSData *urlData = [NSData dataWithContentsOfURL:url];
     if ( urlData )
     {
-        NSArray       *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString  *documentsDirectory = [paths objectAtIndex:0];
+            NSArray  *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSString  *documentsDirectory = [paths objectAtIndex:0];
         
-        NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",@"test"]];
+            NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",@"test"]];
         
-        BOOL isWrite = [urlData writeToFile:filePath atomically:YES];
+            BOOL isWrite = [urlData writeToFile:filePath atomically:YES];
         
-        NSString *tempFilePath;
+            NSString *tempFilePath;
         
-        if(isWrite){
-            tempFilePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",@"test"]];
-        }
+            if(isWrite){
+                tempFilePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",@"test"]];
+            }
         
-        NSURL *resultURL = [NSURL fileURLWithPath:tempFilePath];
+            NSURL *resultURL = [NSURL fileURLWithPath:tempFilePath];
         
-        self.documentInteractionCntroller = [UIDocumentInteractionController interactionControllerWithURL:resultURL];
-        self.documentInteractionCntroller.delegate = self;
-        [self.documentInteractionCntroller presentOptionsMenuFromRect:CGRectZero inView:self.view animated:YES];
+            self.documentInteractionCntroller = [UIDocumentInteractionController interactionControllerWithURL:resultURL];
+            self.documentInteractionCntroller.delegate = self;
+            [self.documentInteractionCntroller presentOptionsMenuFromRect:CGRectZero inView:self.view animated:YES];
         //
         
-        [self.indicator stopAnimating];
-        [self.indi_view removeFromSuperview];
-        [self.loading setHidden:YES];
+            [self.indicator stopAnimating];
+            [self.indi_view removeFromSuperview];
+            [self.loading setHidden:YES];
+        }
     }
-    
     
 }
                                    
