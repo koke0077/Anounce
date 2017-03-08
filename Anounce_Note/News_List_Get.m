@@ -32,6 +32,7 @@
 //        self.cacheData = [[NSMutableData alloc] init];
     
     self.cacheData = [NSMutableData data];
+    list_url = [list_url stringByReplacingOccurrencesOfString:@" " withString:@""];
     
     myshool_url = school_url;
     

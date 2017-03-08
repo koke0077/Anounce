@@ -99,12 +99,15 @@
         
         endRange = NSMakeRange(startLoc, endLoc - startLoc);
         rangeBlock = [HTML substringWithRange:endRange];
-        if ([rangeBlock hasSuffix:@"알림장"]) {
+        if ([rangeBlock containsString:@"알림"]) {
             rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"amp;" withString:@""];
             rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"알림장" withString:@""];
             rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"우리반" withString:@""];
             rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@" " withString:@""];
             rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"\">" withString:@""];
+            rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"기억해요" withString:@""];
+            rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"알림내용" withString:@""];
+            rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"*" withString:@""];
             [HTMLList appendString:rangeBlock];
             [HTMLList appendString:@"%BE%CB%B8%B2%C0%E5"];
             break;

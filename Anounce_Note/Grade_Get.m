@@ -282,9 +282,16 @@
         rangeBlock = [HTML substringWithRange:endRange];
         // 3월 26일 수정
        
+        if([rangeBlock containsString:@"유치원"]){
+            
+        }else{
+            
+            [HTMLList addObject:rangeBlock];
+        }
         
-        [HTMLList addObject:rangeBlock];
-        
+    }
+    if(HTMLList.count == 7){
+        [HTMLList removeObjectAtIndex:0];
     }
     
     return HTMLList;

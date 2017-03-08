@@ -182,6 +182,16 @@
         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"&#983709;" withString:@""];
         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"&#983710;" withString:@""];
         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"&#983711;" withString:@""];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"&" withString:@""];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"lt;" withString:@""];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"gt;" withString:@""];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"lsquo" withString:@""];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"rsquo" withString:@""];
+
+
+
+
+
         
         
         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"#61549;" withString:@""];

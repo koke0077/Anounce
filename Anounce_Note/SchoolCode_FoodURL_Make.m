@@ -494,10 +494,11 @@
     
     if([self.sch_url rangeOfString:@"ganam"].length !=0){
         self.school_code = @"S100003883";
+    }else if([self.sch_url rangeOfString:@"gamgye"].length !=0){
+        self.school_code = @"S100003458";
     }else{
         self.school_code = [self devideHTMLSring2:htmlData];
     }
-    
     
     self.school_code_nonCode =[self remove_Scode:self.school_code];
     
@@ -505,7 +506,14 @@
     [news_Url appendString:@"/index.jsp?"];
     [news_Url appendString:self.school_code];
     [news_Url appendString:@"&"];
-    [news_Url appendString:[self devideHTMLSringToNews_List:htmlData]];
+    if([self.sch_url containsString:@"galjeon"]){
+        [news_Url appendString:@"mnu=M001006001"]; //갈전초 공지사항 url 추가  (임시방편..ㅜ.ㅜ) 2017.3.8.
+    }else if([self.sch_url containsString:@"munsun"]){//문선초 공지사항 url 추가 (임시방편..ㅜㅜ) 2017.3.8.
+        [news_Url appendString:@"mnu=M001010002"];
+    }else{
+        [news_Url appendString:[self devideHTMLSringToNews_List:htmlData]];
+    }
+    
     
     [self.strUrl appendString:self.food_url];
     NSMutableString *now_class = [[NSMutableString alloc]initWithString:self.sch_url];

@@ -35,6 +35,7 @@
     }
 
 //    self.cus = [[Class_Url_Make alloc]init];
+    str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
     
     self.note_url = str;
     
