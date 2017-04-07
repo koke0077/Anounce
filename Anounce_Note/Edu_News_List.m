@@ -47,7 +47,7 @@
 //뉴스 url생성
 -(NSArray *)devideString:(NSString *)HTML{
     
-    NSString *startTag = @"p class=\"img\"";
+    NSString *startTag = @"class=\"pro_tit\"";
     NSString *secondTag = @"href=\"";
     NSString *endTag = @"\" title";
     
@@ -64,7 +64,7 @@
     
     while (YES) {
         
-        [url_list appendString:@"http://news.gne.go.kr"];
+        [url_list appendString:@"http://www.gne.go.kr"];
         
         
         aRange = [HTML rangeOfString:startTag options:NSCaseInsensitiveSearch range:aRange];
@@ -120,7 +120,7 @@
 }
 -(NSArray *)devideString2:(NSString *)HTML{
     
-    NSString *startTag = @"p class=\"img\"";
+    NSString *startTag = @"class=\"pro_tit\"";
     NSString *secondTag = @"title=\"";
     NSString *endTag = @"\">";
     

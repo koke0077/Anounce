@@ -284,15 +284,26 @@
        
         if([rangeBlock containsString:@"유치원"]){
             
+        }else if([rangeBlock containsString:@"공통학년"]){ //명서초 에러
+            
+        }else if([rangeBlock containsString:@"영재학급"]){ //호암초 에러
+            
         }else{
             
             [HTMLList addObject:rangeBlock];
         }
         
     }
-    if(HTMLList.count == 7){
+    NSString *test1 = [HTMLList objectAtIndex:0];
+    while (![test1 containsString:@"1학년"]) {
         [HTMLList removeObjectAtIndex:0];
+        test1 = [HTMLList objectAtIndex:0];
     }
+//    if([[HTMLList objectAtIndex:0] containsObject:@"1학년"]){
+//        
+//    }else{
+//        [HTMLList removeObjectAtIndex:0];
+//    }
     
     return HTMLList;
     

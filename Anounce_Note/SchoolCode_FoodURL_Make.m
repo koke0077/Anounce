@@ -382,6 +382,7 @@
     }else if([HTML rangeOfString:@">공지사항<"].length != 0){
         startTag = @"sub_1";
         secondTag = @"<a href=\"";
+//        secondTag = @"\">";
         endTag = @"\">공지사항";
 
     }else{
@@ -430,7 +431,7 @@
         
         endRange = NSMakeRange(startLoc, endLoc - startLoc);
         rangeBlock = [HTML substringWithRange:endRange];
-        
+//        rangeBlock = [self stripTags:rangeBlock];
         
         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"<br />" withString:@""];
         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"</div>" withString:@""];
@@ -494,8 +495,10 @@
     
     if([self.sch_url rangeOfString:@"ganam"].length !=0){
         self.school_code = @"S100003883";
-    }else if([self.sch_url rangeOfString:@"gamgye"].length !=0){
+    }else if([self.sch_url rangeOfString:@"gamgye"].length !=0){  //S100003471
         self.school_code = @"S100003458";
+    }else if([self.sch_url rangeOfString:@"handeul"].length !=0){  //
+        self.school_code = @"S100003471";
     }else{
         self.school_code = [self devideHTMLSring2:htmlData];
     }
@@ -506,8 +509,8 @@
     [news_Url appendString:@"/index.jsp?"];
     [news_Url appendString:self.school_code];
     [news_Url appendString:@"&"];
-    if([self.sch_url containsString:@"galjeon"]){
-        [news_Url appendString:@"mnu=M001006001"]; //갈전초 공지사항 url 추가  (임시방편..ㅜ.ㅜ) 2017.3.8.
+    if([self.sch_url containsString:@"galjeon"] || [self.sch_url containsString:@"jyjungang"]){
+        [news_Url appendString:@"mnu=M001006001"]; //갈전초 공지사항 url 추가  (임시방편..ㅜ.ㅜ) 2017.3.8., 진영중앙초등학교 역시...;;
     }else if([self.sch_url containsString:@"munsun"]){//문선초 공지사항 url 추가 (임시방편..ㅜㅜ) 2017.3.8.
         [news_Url appendString:@"mnu=M001010002"];
     }else{

@@ -45,9 +45,9 @@
 //뉴스 타이틀 가져오기
 -(NSString *)devideString:(NSString *)HTML{
     
-    NSString *startTag = @"제목</th>";
-    NSString *secondTag = @"\">";
-    NSString *endTag = @"</td>";
+    NSString *startTag = @"class=\"board\">";
+    NSString *secondTag = @"class=\"topline\">";
+    NSString *endTag = @"</th>";
     
     NSString *HTMLList = @"";
     
@@ -113,9 +113,9 @@
 //뉴스기사 가져오기
 -(NSArray *)devideString2:(NSString *)HTML{
     
-    NSString *startTag = @"colspan=\"4\"";
-    NSString *secondTag = @"contents";
-    NSString *endTag = @"</tbody>";
+    NSString *startTag = @"class=\"board\">";
+    NSString *secondTag = @"colspan=\"4\">";
+    NSString *endTag = @"</td>";
     
     NSMutableArray *HTMLList = [[NSMutableArray alloc]init];
     
@@ -169,8 +169,8 @@
         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"\t" withString:@""];
         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"\r" withString:@""];
         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"<br /><br />" withString:@"\n\n  "];
-        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"<br /> <br />" withString:@"\n\n  "];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"<br><br>" withString:@"\n\n  "];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"<br> <br>" withString:@"\n\n  "];
         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"     " withString:@""];
         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"  " withString:@""];
         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"<br />" withString:@" "];

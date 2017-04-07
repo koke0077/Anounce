@@ -72,7 +72,7 @@ NSInteger const SMEPGiPadViewControllerCellWidth = 300;
     is_load_data = NO;
     is_pars_data = NO;
     is_new = NO;
-    
+    page = 1;
     if ([self isNetworkReachable]) {
         
         if ([self isCellNetwork]) {
@@ -173,14 +173,20 @@ NSInteger const SMEPGiPadViewControllerCellWidth = 300;
     
 }
 
+//http://www.gne.go.kr/board/list.gne?boardId=BBS_0000212&menuCd=DOM_000000135001004000&contentsSid=1296&cpath=
 
+//http://www.gne.go.kr/board/list.gne?orderBy=REGISTER_DATE+DESC&boardId=BBS_0000212&categoryCode1=&searchStartDt=&searchEndDt=&startPage=1&menuCd=DOM_000000135001004000&contentsSid=1296&searchType=DATA_TITLE&keyword=
 
+//http://www.gne.go.kr/board/list.gne?orderBy=REGISTER_DATE+DESC&boardId=BBS_0000212&categoryCode1=&searchStartDt=&searchEndDt=&startPage=2&menuCd=DOM_000000135001004000&contentsSid=1296&searchType=DATA_TITLE&keyword=
+
+//http://www.gne.go.kr/board/list.gne?orderBy=REGISTER_DATE+DESC&boardId=BBS_0000212&categoryCode1=&searchStartDt=&searchEndDt=&startPage=3&menuCd=DOM_000000135001004000&contentsSid=1296&searchType=DATA_TITLE&keyword=
 -(void) show_news{
     
     [self indi_start];
     [self.reload_btn removeFromSuperview];
     
-    NSString *url_str = @"http://news.gne.go.kr/allBoard.do?type=news&page=1&mcode=XM1401070728004&viewType=Y&addDay=24&boardseq=boardEJ1400460249735&recoType=N";
+//    NSString *url_str = @"http://news.gne.go.kr/allBoard.do?type=news&page=1&mcode=XM1401070728004&viewType=Y&addDay=24&boardseq=boardEJ1400460249735&recoType=N";
+    NSString *url_str = @"http://www.gne.go.kr/board/list.gne?orderBy=REGISTER_DATE+DESC&boardId=BBS_0000212&categoryCode1=&searchStartDt=&searchEndDt=&startPage=1&menuCd=DOM_000000135001004000&contentsSid=1296&searchType=DATA_TITLE&keyword=";
     [edu_list parsingWithEduNewsWith:url_str];
     page = 1;
     
@@ -480,9 +486,9 @@ NSInteger const SMEPGiPadViewControllerCellWidth = 300;
     if([self.reload_btn isDescendantOfView:self.view] == true){
         
     }else{
-        NSString *url_str = @"http://news.gne.go.kr/allBoard.do?type=news&page=1&mcode=XM1401070728004&viewType=Y&addDay=24&boardseq=boardEJ1400460249735&recoType=N";
+        NSString *url_str = [NSString stringWithFormat:@"http://www.gne.go.kr/board/list.gne?orderBy=REGISTER_DATE+DESC&boardId=BBS_0000212&categoryCode1=&searchStartDt=&searchEndDt=&startPage=%d&menuCd=DOM_000000135001004000&contentsSid=1296&searchType=DATA_TITLE&keyword=", page];
         [edu_list parsingWithEduNewsWith:url_str];
-        page = 1;
+//        page = 1;
         self.lbl_page.text = [NSString stringWithFormat:@"%d",page];
         self.next_btn.hidden = NO;
     }
@@ -583,7 +589,7 @@ NSInteger const SMEPGiPadViewControllerCellWidth = 300;
     
     if (page >1){
         page--;
-        NSString *str = [NSString stringWithFormat:@"http://news.gne.go.kr/allBoard.do?type=news&page=%d&mcode=XM1401070728004&viewType=Y&addDay=24&boardseq=boardEJ1400460249735&recoType=N", page];
+        NSString *str = [NSString stringWithFormat:@"http://www.gne.go.kr/board/list.gne?orderBy=REGISTER_DATE+DESC&boardId=BBS_0000212&categoryCode1=&searchStartDt=&searchEndDt=&startPage=%d&menuCd=DOM_000000135001004000&contentsSid=1296&searchType=DATA_TITLE&keyword=", page];
         [self indi_start];
         self.lbl_page.text = [NSString stringWithFormat:@"%d",page];
         [edu_list parsingWithEduNewsWith:str];
@@ -598,7 +604,7 @@ NSInteger const SMEPGiPadViewControllerCellWidth = 300;
     self.lbl_page.text = [NSString stringWithFormat:@"%d",page];
     is_new = YES;
     [self indi_start];
-    NSString *str = [NSString stringWithFormat:@"http://news.gne.go.kr/allBoard.do?type=news&page=%d&mcode=XM1401070728004&viewType=Y&addDay=24&boardseq=boardEJ1400460249735&recoType=N", page];
+    NSString *str = [NSString stringWithFormat:@"http://www.gne.go.kr/board/list.gne?orderBy=REGISTER_DATE+DESC&boardId=BBS_0000212&categoryCode1=&searchStartDt=&searchEndDt=&startPage=%d&menuCd=DOM_000000135001004000&contentsSid=1296&searchType=DATA_TITLE&keyword=", page];
     
     [edu_list parsingWithEduNewsWith:str];
     

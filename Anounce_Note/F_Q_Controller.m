@@ -214,7 +214,11 @@
     NSArray *toRecipents2 = [NSArray arrayWithObject:@"koke0077@gmail.com"];
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+    
     mc.mailComposeDelegate = self;
+    
+    if ([MFMailComposeViewController canSendMail]) {
+//    mc.mailComposeDelegate = self;
     [mc setSubject:emailTitle];
     [mc setMessageBody:messageBody isHTML:NO];
     [mc setToRecipients:toRecipents];
@@ -222,6 +226,7 @@
     
 
     [self presentViewController:mc animated:YES completion:NULL];
+    }
     
 }
 
