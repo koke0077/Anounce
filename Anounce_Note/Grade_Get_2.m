@@ -169,8 +169,19 @@
         rangeBlock = [self stripTags:rangeBlock];
         
         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"반" withString:@""];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"학급" withString:@"1"];
         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"\n" withString:@""];
         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"개별실" withString:@""];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"과학" withString:@"1"];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"영어" withString:@"1"];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"체육" withString:@"1"];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"음악" withString:@"1"];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"미술" withString:@"1"];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"영재" withString:@"1"];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"발명" withString:@"1"];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"전담" withString:@""];
+        
         
 //        NSLog(@"%d", rangeBlock.length);
         

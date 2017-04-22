@@ -20,7 +20,7 @@
 - (NSString *)getDBPath {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory , NSUserDomainMask, YES);
     NSString *documentsDir = [paths objectAtIndex:0];
-    return [documentsDir stringByAppendingPathComponent:@"school_data5.sqlite"];
+    return [documentsDir stringByAppendingPathComponent:@"school_data8.sqlite"];
 }
 
 - (NSString *)getDBPath2 {
@@ -38,7 +38,7 @@
     
     if(!success) {
         
-        NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"school_data5.sqlite"];
+        NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"school_data8.sqlite"];
         success = [fileManager copyItemAtPath:defaultDBPath toPath:dbPath error:nil];
         
         if (!success) NSLog(@"데이터베이스 파일 복사 실패.");

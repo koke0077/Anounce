@@ -520,22 +520,41 @@
     
     [self.strUrl appendString:self.food_url];
     NSMutableString *now_class = [[NSMutableString alloc]initWithString:self.sch_url];
-    [now_class appendString:@"/index.jsp?"];
-    [now_class appendString:self.school_code];
+    
     
     //------- 2016. 4월 25일 수정
     
     // 학교홈페이지에서 학급 홈페이지를 열거해 놓은 페이지가 없어 학급홈페이지 전체를 보여주는 페이지를 뽑아내는 과정을 생략하였다.
     // delegate에 변수를 하나 만들어 위의 페이지가 없을 경우에 대한 플래그로 활용한다. 즉 Grade_Get 클래스에서 delegate 변수를 이용해 학급홈페이지를 안내하는 페이지가 있는 경우와 없는 경우에 대한 분기를 달리하여 학년에 따른 학급의 수를 셀 수 있도록 한다.
-    
-    if([htmlData rangeOfString:@"반선택"].length ==0 || [htmlData rangeOfString:@"학급홈페이지"].length !=0 || [htmlData rangeOfString:@"학급마당"].length !=0){
-        [now_class appendString:@"&mnu="];
-        [now_class appendString:[self devideHTMLSringClass:htmlData]];
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+
+    if([htmlData rangeOfString:@"반선택"].length != 0 && [self.sch_url containsString:@"daecheong"]){
         
-        AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
-        
+    }else if([self.sch_url containsString:@"md-p"]){
+        [now_class appendString:@"/?SCODE=S0000000257&mnu=M001006001"];
         delegate.is_str = 1;
+    }else{
+        if([htmlData rangeOfString:@"학급홈페이지"].length !=0 || [htmlData rangeOfString:@"학급마당"].length !=0){
+            [now_class appendString:@"/index.jsp?"];
+            [now_class appendString:self.school_code];
+            [now_class appendString:@"&mnu="];
+            [now_class appendString:[self devideHTMLSringClass:htmlData]];
+            
+            
+            delegate.is_str = 1;
+        }
     }
+    
+    
+    
+//    if([htmlData rangeOfString:@"반선택"].length ==0 || [htmlData rangeOfString:@"학급홈페이지"].length !=0 || [htmlData rangeOfString:@"학급마당"].length !=0){
+//        [now_class appendString:@"&mnu="];
+//        [now_class appendString:[self devideHTMLSringClass:htmlData]];
+//        
+//        AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+//        
+//        delegate.is_str = 1;
+//    }
     
    
     
