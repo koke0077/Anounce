@@ -20,6 +20,8 @@
 @property (strong, nonatomic) NSDictionary *student_dic;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_Title;
+@property (strong, nonatomic) NSString *school_url1;
+
 - (IBAction)btn_back:(UIButton *)sender;
 
 @end

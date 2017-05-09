@@ -100,6 +100,7 @@
 		856F25421E9F3A4000073918 /* school_data5.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 856F25411E9F3A4000073918 /* school_data5.sqlite */; };
 		856F25441E9F3C5000073918 /* school_data6.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 856F25431E9F3C5000073918 /* school_data6.sqlite */; };
 		8573509D1E68731A00A20010 /* school_data4.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8573509C1E68731A00A20010 /* school_data4.sqlite */; };
+		85AA8FCB1EB380510029711C /* school_data9.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 85AA8FCA1EB380510029711C /* school_data9.sqlite */; };
 		85F5A00A1E470BDD0022FF79 /* NoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F5A0091E470BDD0022FF79 /* NoticeViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -254,6 +255,7 @@
 		856F25411E9F3A4000073918 /* school_data5.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = school_data5.sqlite; sourceTree = "<group>"; };
 		856F25431E9F3C5000073918 /* school_data6.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = school_data6.sqlite; sourceTree = "<group>"; };
 		8573509C1E68731A00A20010 /* school_data4.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = school_data4.sqlite; sourceTree = "<group>"; };
+		85AA8FCA1EB380510029711C /* school_data9.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = school_data9.sqlite; sourceTree = "<group>"; };
 		85F5A0081E470BDD0022FF79 /* NoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeViewController.h; sourceTree = "<group>"; };
 		85F5A0091E470BDD0022FF79 /* NoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -427,6 +429,7 @@
 		15F9FCD11AFF205A00D6E7D5 /* Sq_Data */ = {
 			isa = PBXGroup;
 			children = (
+				85AA8FCA1EB380510029711C /* school_data9.sqlite */,
 				853013BC1EAB9C3300068412 /* school_data8.sqlite */,
 				853013BA1EAB9B6400068412 /* school_data7.sqlite */,
 				856F25431E9F3C5000073918 /* school_data6.sqlite */,
@@ -642,6 +645,7 @@
 				15F9FCC41AFDFD7A00D6E7D5 /* a_4@2x.png in Resources */,
 				15CA2C0F1B1DEF2700C2A41D /* 하동.png in Resources */,
 				856F25421E9F3A4000073918 /* school_data5.sqlite in Resources */,
+				85AA8FCB1EB380510029711C /* school_data9.sqlite in Resources */,
 				157C81261C9EE54600E5A7CD /* send_mail.png in Resources */,
 				15D5328F1CD31AFD00290689 /* school_data2.sqlite in Resources */,
 			);

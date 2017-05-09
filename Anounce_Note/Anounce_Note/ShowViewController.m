@@ -13,6 +13,13 @@
 @interface ShowViewController (){
     
     Lms_List_Get *lms_get;
+    
+    NSArray *files_arr;
+    UIView *v1;
+    UIButton *btn_1;
+    UIButton *btn_2;
+    UIButton *btn_3;
+
 }
 
 @property NSArray *data_arr;
@@ -26,17 +33,14 @@
 @end
 
 @implementation ShowViewController
-@synthesize student_dic;
+@synthesize student_dic, school_url1;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     
    //    NSLog(@"%@", student_dic);
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:YES];
+    
     self.navigationController.navigationBarHidden = NO;
     
     [self indi_start];
@@ -47,6 +51,8 @@
     //    self.navigationItem.title  = [NSString stringWithFormat:@"%@학년 %@반 %@ 알림장", [student_dic objectForKey:@"grade"], [student_dic objectForKey:@"class"], [student_dic objectForKey:@"name"]];
     
     self.navigationItem.title  = [NSString stringWithFormat:@"%@학년 %@반 %@ 알림장", [student_dic objectForKey:@"grade"], [student_dic objectForKey:@"class"], [student_dic objectForKey:@"name"]];
+    
+    
     
     Note_List_Get *note_get = [[Note_List_Get alloc]init];
     
@@ -62,7 +68,6 @@
     
     
     
-    
     NSString *url = [student_dic objectForKey:@"note_url"];
     
     NSRange range_1 = [url rangeOfString:@"lms"];
@@ -72,14 +77,23 @@
     }else{
         //        [c_make parsing:url];
         
-//        [lms_get nonLmsParsingUrl:url];
+        //        [lms_get nonLmsParsingUrl:url];
         
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"학급정보 오류" message:@"새미학급과 더이상 연동하지 않습니다.\n 학급정보를 새로 등록하시면 제대로 동작합니다.\n 그래도 새미학급과 연동하기를 원하시면 확인을 눌러주세요." delegate:self cancelButtonTitle:@"취소" otherButtonTitles:@"확인", nil];
         alertView.tag = 2;
         [alertView show];
     }
+    
+    
 
 }
+
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+}
+
+
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -185,6 +199,7 @@
         
         [[segue destinationViewController] setTitle_txt:title_str];
         [[segue destinationViewController] setCon_url:url_str];
+        [[segue destinationViewController] setSchool_url_2:school_url1];
     }else if([segue.identifier isEqualToString:@"food"]){
         
         NSString *food_url = [student_dic objectForKey:@"food_url"];

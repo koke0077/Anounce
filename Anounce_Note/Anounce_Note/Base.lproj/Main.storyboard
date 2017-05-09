@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DDt-TV-Omn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DDt-TV-Omn">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1258,8 +1258,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ver : 1.1.9" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIC-5J-S2f">
-                                <rect key="frame" x="528" y="20" width="56" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ver : 1.2.1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIC-5J-S2f">
+                                <rect key="frame" x="527.5" y="20" width="56.5" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1774,27 +1774,43 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8Q-bj-MhY">
-                                <rect key="frame" x="16" y="92" width="568" height="488"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8Q-bj-MhY">
+                                <rect key="frame" x="16" y="134" width="568" height="450"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wIH-ws-brq">
+                                <rect key="frame" x="16" y="92" width="564" height="29"/>
+                                <segments>
+                                    <segment title="우리말"/>
+                                    <segment title="English"/>
+                                    <segment title="ViệtNam"/>
+                                    <segment title="中    国"/>
+                                    <segment title="日    本"/>
+                                </segments>
+                                <connections>
+                                    <action selector="lang_segment:" destination="jGQ-3S-tx9" eventType="valueChanged" id="7FX-zu-lMK"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="hhD-yt-34f" firstAttribute="trailing" secondItem="5lf-HI-hp4" secondAttribute="trailingMargin" id="3Bg-YW-ZDK"/>
-                            <constraint firstItem="uDb-LQ-dNa" firstAttribute="top" secondItem="X8Q-bj-MhY" secondAttribute="bottom" constant="20" id="7D9-6x-zP4"/>
+                            <constraint firstItem="uDb-LQ-dNa" firstAttribute="top" secondItem="X8Q-bj-MhY" secondAttribute="bottom" constant="16" id="7D9-6x-zP4"/>
+                            <constraint firstItem="wIH-ws-brq" firstAttribute="leading" secondItem="5lf-HI-hp4" secondAttribute="leadingMargin" constant="-4" id="9TU-dw-ZHv"/>
                             <constraint firstItem="h6A-dK-j5G" firstAttribute="top" secondItem="BPA-gD-gY0" secondAttribute="bottom" constant="-40" id="B8e-bV-d8v"/>
                             <constraint firstAttribute="centerX" secondItem="hhD-yt-34f" secondAttribute="centerX" id="CNd-Kw-3fx"/>
                             <constraint firstItem="hhD-yt-34f" firstAttribute="leading" secondItem="5lf-HI-hp4" secondAttribute="leadingMargin" id="P2e-2B-yA7"/>
                             <constraint firstItem="hhD-yt-34f" firstAttribute="top" secondItem="BPA-gD-gY0" secondAttribute="bottom" id="PKh-AV-SHH"/>
                             <constraint firstItem="uDb-LQ-dNa" firstAttribute="top" secondItem="h6A-dK-j5G" secondAttribute="bottom" id="TyZ-vP-iKv"/>
-                            <constraint firstItem="X8Q-bj-MhY" firstAttribute="leading" secondItem="5lf-HI-hp4" secondAttribute="leadingMargin" id="gRz-Gh-knU"/>
-                            <constraint firstItem="X8Q-bj-MhY" firstAttribute="top" secondItem="hhD-yt-34f" secondAttribute="bottom" constant="8" id="gSt-sL-J3B"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wIH-ws-brq" secondAttribute="trailing" id="d1L-GN-5Xp"/>
+                            <constraint firstItem="X8Q-bj-MhY" firstAttribute="leading" secondItem="5lf-HI-hp4" secondAttribute="leadingMargin" constant="-4" id="gRz-Gh-knU"/>
+                            <constraint firstItem="X8Q-bj-MhY" firstAttribute="top" secondItem="hhD-yt-34f" secondAttribute="bottom" constant="50" id="gSt-sL-J3B"/>
                             <constraint firstAttribute="trailingMargin" secondItem="h6A-dK-j5G" secondAttribute="trailing" constant="-16" id="i62-E4-OIC"/>
                             <constraint firstItem="h6A-dK-j5G" firstAttribute="leading" secondItem="5lf-HI-hp4" secondAttribute="leadingMargin" constant="-16" id="iOm-9C-T7w"/>
-                            <constraint firstItem="X8Q-bj-MhY" firstAttribute="trailing" secondItem="5lf-HI-hp4" secondAttribute="trailingMargin" id="kPt-cn-r0f"/>
+                            <constraint firstItem="X8Q-bj-MhY" firstAttribute="trailing" secondItem="5lf-HI-hp4" secondAttribute="trailingMargin" constant="4" id="kPt-cn-r0f"/>
+                            <constraint firstItem="wIH-ws-brq" firstAttribute="top" secondItem="hhD-yt-34f" secondAttribute="bottom" constant="8" id="tbX-nC-R8S"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -1806,7 +1822,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sL9-QN-uzb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2072" y="93"/>
+            <point key="canvasLocation" x="2072" y="92.653673163418304"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="VEo-aw-OiD">
@@ -2329,7 +2345,7 @@
         <image name="send_mail.png" width="235" height="158"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="X25-0K-G9e"/>
-        <segue reference="hDh-VV-Y6I"/>
+        <segue reference="7WO-Og-iH6"/>
+        <segue reference="TnM-lO-tIc"/>
     </inferredMetricsTieBreakers>
 </document>

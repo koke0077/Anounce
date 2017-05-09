@@ -305,6 +305,8 @@
     
     if([HTML rangeOfString:@"우리학급,/"].length != 0){
         startTag = @"우리학급";
+    }else if([HTML rangeOfString:@"우리교실"].length !=0){
+        startTag = @"우리교실";
     }else if([HTML rangeOfString:@"학급홈페이지,/"].length !=0){
         startTag = @"학급홈페이지";
     }else if([HTML rangeOfString:@"어린이마당,/"].length !=0){
@@ -533,8 +535,15 @@
     }else if([self.sch_url containsString:@"md-p"]){
         [now_class appendString:@"/?SCODE=S0000000257&mnu=M001006001"];
         delegate.is_str = 1;
+    }else if([self.sch_url containsString:@"angolpo"]){
+        [now_class appendString:@"/?SCODE=S0000000058&mnu=M001007002"];
+        delegate.is_str = 1;
+    }else if([htmlData rangeOfString:@"반선택"].length != 0){
+        
+    }else if([htmlData rangeOfString:@"banItem.options[0].text"].length !=0){
+        
     }else{
-        if([htmlData rangeOfString:@"학급홈페이지"].length !=0 || [htmlData rangeOfString:@"학급마당"].length !=0){
+//        if([htmlData rangeOfString:@"학급홈페이지"].length !=0 || [htmlData rangeOfString:@"학급마당"].length !=0){
             [now_class appendString:@"/index.jsp?"];
             [now_class appendString:self.school_code];
             [now_class appendString:@"&mnu="];
@@ -542,9 +551,13 @@
             
             
             delegate.is_str = 1;
-        }
+//        }
     }
     
+//    if([self.sch_url containsString:@"gunbuk"]){
+//        [now_class appendString:@"/index.jsp?SCODE=S0000000232&mnu=M001007001"];
+//        delegate.is_str = 1;
+//    }
     
     
 //    if([htmlData rangeOfString:@"반선택"].length ==0 || [htmlData rangeOfString:@"학급홈페이지"].length !=0 || [htmlData rangeOfString:@"학급마당"].length !=0){

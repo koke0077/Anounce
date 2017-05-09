@@ -13,9 +13,10 @@
 @class Lms_Content_Get;
 @class Note_Content_Get;
 
-@interface ShowViewContents : UIViewController<LmsContentDelegate, NoteContentDelegate>
+@interface ShowViewContents : UIViewController<LmsContentDelegate, NoteContentDelegate,UIDocumentInteractionControllerDelegate>
 
 @property NSString *con_url;
 @property NSString *title_txt;
+@property (strong, nonatomic) NSString *school_url_2;
 
 @end

@@ -21,7 +21,7 @@
 
 @protocol NoteContentDelegate
 
--(void)compliteNote:(NSString *)note_str;
+-(void)compliteNote:(NSString *)note_str Files:(NSArray *)files;
 
 
 

@@ -40,6 +40,7 @@
     int page;
     BOOL is_new;
     
+    
 }
 @property (weak, nonatomic) IBOutlet UILabel *lbl_title;
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
@@ -527,7 +528,8 @@ NSInteger const SMEPGiPadViewControllerCellWidth = 300;
 //        NSArray *arr = [self.collectionView indexPathsForSelectedItems];
 //        
 //        NSDictionary *ok_dic = [std_arr objectAtIndex:[[arr objectAtIndex:0]row]];
-        
+        NSString *school_url = [ok_dic objectForKey:@"school_url"];
+        [[segue destinationViewController] setSchool_url1:school_url];
         [[segue destinationViewController] setStudent_dic:ok_dic];
 
     }else if([segue.identifier isEqual: @"Manage"]){

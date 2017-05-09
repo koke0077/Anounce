@@ -29,7 +29,7 @@
     
     
     //    UIFont *font = [UIFont fontWithName:@"System-Bold" size:20];
-    NSString *string = @"2017학년도가 시작되면 해당 학년으로 다시 등록해서 사용해야 합니다. 그리고 학생등록 이후 오류로 인해 잘못된 정보가 나타나는 경우에도 업데이트 이후 새로 학생을 등록해 이용하시기 바랍니다. \n  만약 새로 추가했음에도 이용하는데 문제가 생긴다면 문의하기에서 오류사항을 개발팀으로 알려주시면 최대한 빨리 조치하도록 하겠습니다. ";
+    NSString *string = @"다문화 가정을 위하여 5월부터 투데이 알림장에서는 영어,중국어,일본어,베트남어를 지원합니다. 추후 더 많은 외국어를 지원할 수 있도록 노력하겠습니다.";
     NSDictionary *attributtes = @{
                                   NSParagraphStyleAttributeName : paragraphStyle,
                                   };
@@ -67,7 +67,7 @@
 
 - (IBAction)close_act:(UIButton *)sender {
     
-    [self.view removeFromSuperview];
+    [self kill_view];
 }
 
 - (IBAction)on_off_toggle:(UISwitch *)sender {
@@ -83,9 +83,13 @@
     }else{
         [defaults setInteger:1 forKey:@"notice"];
         NSLog(@"%d", (int)[defaults integerForKey:@"notice"]);
-        [self.view removeFromSuperview];
+        [self kill_view];
 
     }
     
+}
+
+-(void) kill_view{
+    [self.view removeFromSuperview];
 }
 @end
