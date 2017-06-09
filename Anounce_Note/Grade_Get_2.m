@@ -406,6 +406,10 @@
         
         //        NSLog(@"%d", rangeBlock.length);
         
+        if(rangeBlock.length >1){ //10반이 넘어서는 경우 rangeBlock의 길이가 1에서 2로 늘어남에 따라 원래의 반 수보다 더 늘어나는 문제가 생겨 앱이 꺼져버림
+            rangeBlock = [NSString stringWithFormat:@"%d",1];
+        }
+        
         [HTMLList appendString:rangeBlock];
         
     }
