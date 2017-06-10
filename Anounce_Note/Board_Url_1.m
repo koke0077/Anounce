@@ -107,6 +107,7 @@
             rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@" " withString:@""];
             rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"\">" withString:@""];
             rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"기억해요" withString:@""];
+            rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"오늘의" withString:@""];//용호초등학교 4-2 알림장 불러오기 오류해결
             rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"알림내용" withString:@""];
             rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"*" withString:@""];
             [HTMLList appendString:rangeBlock];
