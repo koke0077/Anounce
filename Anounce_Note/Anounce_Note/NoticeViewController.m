@@ -29,7 +29,7 @@
     
     
     //    UIFont *font = [UIFont fontWithName:@"System-Bold" size:20];
-    NSString *string = @"다문화 가정을 위하여 5월부터 투데이 알림장에서는 영어,중국어,일본어,베트남어를 지원합니다. 추후 더 많은 외국어를 지원할 수 있도록 노력하겠습니다.";
+    NSString *string = @"다문화 가정을 위하여 투데이 알림장 학급 알림에서 총 15개국어를 지원합니다.";
     NSDictionary *attributtes = @{
                                   NSParagraphStyleAttributeName : paragraphStyle,
                                   };

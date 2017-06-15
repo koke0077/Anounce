@@ -100,6 +100,9 @@
 		856F25421E9F3A4000073918 /* school_data5.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 856F25411E9F3A4000073918 /* school_data5.sqlite */; };
 		856F25441E9F3C5000073918 /* school_data6.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 856F25431E9F3C5000073918 /* school_data6.sqlite */; };
 		8573509D1E68731A00A20010 /* school_data4.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8573509C1E68731A00A20010 /* school_data4.sqlite */; };
+		857FC6E41EEEC32800B3C5F8 /* school_data10.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 857FC6E31EEEC32800B3C5F8 /* school_data10.sqlite */; };
+		857FC6E71EEEDA9F00B3C5F8 /* select_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 857FC6E51EEEDA9F00B3C5F8 /* select_2.png */; };
+		857FC6E81EEEDA9F00B3C5F8 /* select_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 857FC6E61EEEDA9F00B3C5F8 /* select_1.png */; };
 		85AA8FCB1EB380510029711C /* school_data9.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 85AA8FCA1EB380510029711C /* school_data9.sqlite */; };
 		85F5A00A1E470BDD0022FF79 /* NoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F5A0091E470BDD0022FF79 /* NoticeViewController.m */; };
 /* End PBXBuildFile section */
@@ -255,6 +258,9 @@
 		856F25411E9F3A4000073918 /* school_data5.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = school_data5.sqlite; sourceTree = "<group>"; };
 		856F25431E9F3C5000073918 /* school_data6.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = school_data6.sqlite; sourceTree = "<group>"; };
 		8573509C1E68731A00A20010 /* school_data4.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = school_data4.sqlite; sourceTree = "<group>"; };
+		857FC6E31EEEC32800B3C5F8 /* school_data10.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = school_data10.sqlite; sourceTree = "<group>"; };
+		857FC6E51EEEDA9F00B3C5F8 /* select_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_2.png; sourceTree = "<group>"; };
+		857FC6E61EEEDA9F00B3C5F8 /* select_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_1.png; sourceTree = "<group>"; };
 		85AA8FCA1EB380510029711C /* school_data9.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = school_data9.sqlite; sourceTree = "<group>"; };
 		85F5A0081E470BDD0022FF79 /* NoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeViewController.h; sourceTree = "<group>"; };
 		85F5A0091E470BDD0022FF79 /* NoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeViewController.m; sourceTree = "<group>"; };
@@ -314,6 +320,8 @@
 				15792FBC1CA7C4B2004F7E40 /* Modify_Std_Controller.m */,
 				15792FB81CA6936F004F7E40 /* CustomActivityViewController.h */,
 				15792FB91CA6936F004F7E40 /* CustomActivityViewController.m */,
+				857FC6E51EEEDA9F00B3C5F8 /* select_2.png */,
+				857FC6E61EEEDA9F00B3C5F8 /* select_1.png */,
 				15CA2BF81B1DEF1100C2A41D /* 지명 */,
 				15D197831B2288700075053E /* item_1.png */,
 				157C81251C9EE54600E5A7CD /* send_mail.png */,
@@ -429,6 +437,7 @@
 		15F9FCD11AFF205A00D6E7D5 /* Sq_Data */ = {
 			isa = PBXGroup;
 			children = (
+				857FC6E31EEEC32800B3C5F8 /* school_data10.sqlite */,
 				85AA8FCA1EB380510029711C /* school_data9.sqlite */,
 				853013BC1EAB9C3300068412 /* school_data8.sqlite */,
 				853013BA1EAB9B6400068412 /* school_data7.sqlite */,
@@ -608,6 +617,8 @@
 				15CA2C171B1DEF2700C2A41D /* 김해.png in Resources */,
 				15CA2C0B1B1DEF2700C2A41D /* 거창.png in Resources */,
 				152BD9351CA91560001CF4CB /* develper.png in Resources */,
+				857FC6E71EEEDA9F00B3C5F8 /* select_2.png in Resources */,
+				857FC6E81EEEDA9F00B3C5F8 /* select_1.png in Resources */,
 				15CA2BF71B1DEF0600C2A41D /* 창녕.png in Resources */,
 				15CA2C0D1B1DEF2700C2A41D /* 산청.png in Resources */,
 				15CA2C101B1DEF2700C2A41D /* 함안.png in Resources */,
@@ -617,6 +628,7 @@
 				15CA2BF31B1D746D00C2A41D /* bg_3.png in Resources */,
 				15CA2C091B1DEF2700C2A41D /* 고성.png in Resources */,
 				152BD9311CA9103B001CF4CB /* makingMember.png in Resources */,
+				857FC6E41EEEC32800B3C5F8 /* school_data10.sqlite in Resources */,
 				15CA2C181B1DEF2700C2A41D /* 창원.png in Resources */,
 				15CA2C0A1B1DEF2700C2A41D /* 합천.png in Resources */,
 				15CA2C131B1DEF2700C2A41D /* 사천.png in Resources */,

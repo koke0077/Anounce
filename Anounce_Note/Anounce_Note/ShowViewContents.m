@@ -8,7 +8,7 @@
 
 #import "ShowViewContents.h"
 
-@interface ShowViewContents (){
+@interface ShowViewContents ()<UICollectionViewDelegate, UICollectionViewDataSource>{
     
     NSArray *files_arr;
     UIView *v1;
@@ -23,12 +23,29 @@
     UIButton *btn_3;
     
     NSString *contents_str;
-    NSString *en_str;
-    NSString *vi_str;
-    NSString *chi_str;
-    NSString *jpn_str;
+    NSString *en_str;//영어
+    NSString *vi_str;//베트남
+    NSString *chi_str;//중국
+    NSString *jpn_str;//일본
+    NSString *th_str;//태국
+    NSString *ru_str;//러시아
+    NSString *ar_str;//아랍
+    NSString *km_Str;//카보디아
+    NSString *de_str;//독일
+    NSString *hi_str;//힌디어
+    NSString *pt_str;//포루투갈
+    NSString *bn_str;//벵골
+    NSString *mn_str;//몽골어
+    NSString *id_str;//인도네시아
+    NSString *trans_str[15];
+    
+    NSArray *nations;
+    NSArray *code_nation;
+    UIImage *sel_img;
     
     int is_btn_num;
+    
+    int now_first;
     
     BOOL is_hwp;
 }
@@ -41,6 +58,9 @@
 @property UIActivityIndicatorView *indicator;
 @property UILabel *loading;
 @property UIView *indi_view;
+@property (weak, nonatomic) IBOutlet UICollectionView *lang_CollectionView;
+
+
 - (IBAction)lang_segment:(UISegmentedControl *)sender;
 
 
@@ -56,10 +76,17 @@
     vi_str = @"";
     chi_str = @"";
     jpn_str = @"";
-    
     is_btn_num = 0;
+    sel_img = [UIImage imageNamed:@"select_2"];
+    
+    now_first = 1;
+    
+    nations = @[@"한국어",@"Việt Nam",@"中国",@"日本",@"english",@"ประเทศไทย",@"Россия",@"España",@"العربية المتحدة",@"កម្ពុជា",@"Deutsch",@"हिन्दी",@"português",@"বাঙালি",@"Монгол",@"Indonesia"];
+    code_nation = @[@"vi",@"zh",@"ja",@"en",@"th",@"ru",@"es",@"ar",@"km",@"de",@"hi",@"pt",@"bn",@"mn",@"id"];
     
     self.txt_view.hidden = YES;
+    self.lang_CollectionView.delegate = self;
+    self.lang_CollectionView.dataSource = self;
     
     [self indi_start];
     
@@ -67,13 +94,8 @@
     self.lms_c_get.delegate = self;
     self.note_con_get = [[Note_Content_Get alloc]init];
     self.note_con_get.delegate = self;
-    
     self.lbl_title.text = title_txt;
-    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"첨부파일" style:0 target:self action:@selector(bar_btn)];
-    
-    
-    
     NSRange range_1 = [con_url rangeOfString:@"lms"];
     
     if (range_1.length == 0) {
@@ -82,17 +104,13 @@
         
         [self.lms_c_get parsingToGetWithUrl:con_url];
     }
-    
     v1 = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height+100, self.view.frame.size.width, 100)];
-    
     v1.backgroundColor = [UIColor whiteColor];
     //    v1.alpha = 0.7;
     [self.view addSubview:v1];
-    
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, v1.frame.size.width, 7)];
     label.backgroundColor = [UIColor blueColor];
     [v1 addSubview:label];
-    
     
     UIButton *btn_4 = [UIButton buttonWithType:1];
     btn_4.frame = CGRectMake(v1.frame.size.width-80, 10, 70, 40);
@@ -124,8 +142,91 @@
     [v1 addSubview:btn_3];
     btn_3.tag = 3;
     [btn_3 addTarget:self action:@selector(btn2_action:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    
+    return 16;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    UILabel *lbl = (UILabel *)[cell viewWithTag:10];
+    lbl.text = [nations objectAtIndex:indexPath.row];
+    cell.backgroundColor = [UIColor whiteColor];
+    UIImageView *back_img = (UIImageView *)[cell viewWithTag:20];
+    back_img.image = nil;
+    return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    UIImageView *back_img = (UIImageView *)[cell viewWithTag:20];
+    back_img.image = sel_img;
+    if(indexPath.row == 0){
+        self.txt_view.text = contents_str;
+    }
+    if(indexPath.row > 0){
+        if(trans_str[indexPath.row-1].length == 0){
+            [self indi_start];
+            [self translateWithString:contents_str Nation:code_nation[indexPath.row-1] WithNum:(int)indexPath.row-1];
+        }else{
+            self.txt_view.text = trans_str[indexPath.row-1];
+        }
+    }
     
 }
+
+-(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    cell.backgroundColor = [UIColor whiteColor];
+    UIImageView *back_img = (UIImageView *)[cell viewWithTag:20];
+    back_img.image = nil;
+}
+
+- (IBAction)lang_segment:(UISegmentedControl *)sender {
+    /*
+    int now_select = (int)sender.selectedSegmentIndex;
+    contents_str = [contents_str stringByReplacingOccurrencesOfString:@"&" withString:@","];
+    if (now_select == 0){
+        self.txt_view.text = contents_str;
+    }else if(now_select == 1){
+        is_btn_num = 1;
+        if([en_str isEqualToString:@""]){
+            [self indi_start];
+            [self translateWithString:contents_str Nation:@"en"];
+        }else{
+            self.txt_view.text = en_str;
+        }
+    }else if (now_select == 2){
+        is_btn_num = 2;
+        if([vi_str isEqualToString:@""]){
+            [self indi_start];
+            [self translateWithString:contents_str Nation:@"vi"];
+        }else{
+            self.txt_view.text = vi_str;
+        }
+    }else if (now_select == 3){
+        is_btn_num = 3;
+        if([chi_str isEqualToString:@""]){
+            [self indi_start];
+            [self translateWithString:contents_str Nation:@"zh"];
+        }else{
+            self.txt_view.text = chi_str;
+        }
+    }else if (now_select == 4){
+        is_btn_num = 4;
+        if([jpn_str isEqualToString:@""]){
+            [self indi_start];
+            [self translateWithString:contents_str Nation:@"ja"];
+        }else{
+            self.txt_view.text = jpn_str;
+        }
+    }
+     */
+}
+
 
 -(void)bar_btn{
     
@@ -402,49 +503,7 @@
 }
 
 
-- (IBAction)lang_segment:(UISegmentedControl *)sender {
-    
-    int now_select = (int)sender.selectedSegmentIndex;
-    contents_str = [contents_str stringByReplacingOccurrencesOfString:@"&" withString:@","];
-    if (now_select == 0){
-            self.txt_view.text = contents_str;
-    }else if(now_select == 1){
-            is_btn_num = 1;
-        if([en_str isEqualToString:@""]){
-            [self indi_start];
-            [self translateWithString:contents_str Nation:@"en"];
-    }else{
-            self.txt_view.text = en_str;
-        }
-    }else if (now_select == 2){
-        is_btn_num = 2;
-        if([vi_str isEqualToString:@""]){
-            [self indi_start];
-            [self translateWithString:contents_str Nation:@"vi"];
-        }else{
-            self.txt_view.text = vi_str;
-        }
-    }else if (now_select == 3){
-        is_btn_num = 3;
-        if([chi_str isEqualToString:@""]){
-            [self indi_start];
-            [self translateWithString:contents_str Nation:@"zh"];
-        }else{
-            self.txt_view.text = chi_str;
-        }
-    }else if (now_select == 4){
-        is_btn_num = 4;
-        if([jpn_str isEqualToString:@""]){
-            [self indi_start];
-            [self translateWithString:contents_str Nation:@"ja"];
-        }else{
-            self.txt_view.text = jpn_str;
-        }
-    }
-}
-
-
--(void)translateWithString:(NSString *)str Nation:(NSString *)nation{
+-(void)translateWithString:(NSString *)str Nation:(NSString *)nation WithNum:(int)cnt{
     NSString *dataUrl = [NSString stringWithFormat:@"https://translation.googleapis.com/language/translate/v2?key=AIzaSyBqMdVQWlo7-xMeilJ9R0lvWKXGD8IV1bg&source=ko&target=%@&q=%@",nation,str];
     NSString * encodedString = [dataUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
     NSURL *url = [NSURL URLWithString: encodedString];
@@ -475,7 +534,7 @@
                                                           temp_str = [temp_str stringByReplacingOccurrencesOfString:@"8." withString:@"\n8."];
                                                           temp_str = [temp_str stringByReplacingOccurrencesOfString:@"9." withString:@"\n9."];
 //                                                      }
-                                                      if(is_btn_num == 1){
+                                                      /*if(is_btn_num == 1){
                                                           en_str = temp_str;
                                                           self.txt_view.text = en_str;
                                                       }else if(is_btn_num == 2){
@@ -488,6 +547,9 @@
                                                           jpn_str = temp_str;
                                                           self.txt_view.text = jpn_str;
                                                       }
+                                                       */
+                                                      trans_str[cnt] = temp_str;
+                                                      self.txt_view.text = temp_str;
                                                       
                                                       [self.indicator stopAnimating];
 //                                                      [self.indi_view removeFromSuperview];
