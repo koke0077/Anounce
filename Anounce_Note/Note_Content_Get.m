@@ -116,6 +116,7 @@
         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"&gt;" withString:@"*"];
         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"&amp;" withString:@"&"];
         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"&guot;" withString:@"\""];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@">" withString:@""];
         [HTMLList appendString:rangeBlock];
     }
     return HTMLList;

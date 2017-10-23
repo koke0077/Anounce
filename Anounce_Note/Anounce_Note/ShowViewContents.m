@@ -524,15 +524,15 @@
                                                       NSString *temp_str =translatedText;
 //                                                      if([translatedText containsString:@"2."]){
                                                           temp_str = [temp_str stringByReplacingOccurrencesOfString:@"&#39" withString:@"'"];
-                                                          temp_str = [temp_str stringByReplacingOccurrencesOfString:@"1." withString:@"\n1."];
-                                                          temp_str = [temp_str stringByReplacingOccurrencesOfString:@"2." withString:@"\n2."];
-                                                          temp_str = [temp_str stringByReplacingOccurrencesOfString:@"3." withString:@"\n3."];
-                                                          temp_str = [temp_str stringByReplacingOccurrencesOfString:@"4." withString:@"\n4."];
-                                                          temp_str = [temp_str stringByReplacingOccurrencesOfString:@"5." withString:@"\n5."];
-                                                          temp_str = [temp_str stringByReplacingOccurrencesOfString:@"6." withString:@"\n6."];
-                                                          temp_str = [temp_str stringByReplacingOccurrencesOfString:@"7." withString:@"\n7."];
-                                                          temp_str = [temp_str stringByReplacingOccurrencesOfString:@"8." withString:@"\n8."];
-                                                          temp_str = [temp_str stringByReplacingOccurrencesOfString:@"9." withString:@"\n9."];
+                                                          temp_str = [temp_str stringByReplacingOccurrencesOfString:@"1." withString:@"\n\n1."];
+                                                          temp_str = [temp_str stringByReplacingOccurrencesOfString:@"2." withString:@"\n\n2."];
+                                                          temp_str = [temp_str stringByReplacingOccurrencesOfString:@"3." withString:@"\n\n3."];
+                                                          temp_str = [temp_str stringByReplacingOccurrencesOfString:@"4." withString:@"\n\n4."];
+                                                          temp_str = [temp_str stringByReplacingOccurrencesOfString:@"5." withString:@"\n\n5."];
+                                                          temp_str = [temp_str stringByReplacingOccurrencesOfString:@"6." withString:@"\n\n6."];
+                                                          temp_str = [temp_str stringByReplacingOccurrencesOfString:@"7." withString:@"\n\n7."];
+                                                          temp_str = [temp_str stringByReplacingOccurrencesOfString:@"8." withString:@"\n\n8."];
+                                                          temp_str = [temp_str stringByReplacingOccurrencesOfString:@"9." withString:@"\n\n9."];
 //                                                      }
                                                       /*if(is_btn_num == 1){
                                                           en_str = temp_str;

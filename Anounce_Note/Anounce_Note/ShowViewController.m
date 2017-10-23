@@ -110,7 +110,7 @@
     [self.loading removeFromSuperview];
     
     if (self.data_arr.count == 0) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"알림장 없음" message:@"알림장이 기록되어 있지 않습니다.\n선생님에게 문의하십시오." delegate:self cancelButtonTitle:@"확인" otherButtonTitles:nil, nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"알림장 없음" message:@"알림장이 기록되어 있지 않습니다.\n선생님에게 문의하십시오.\n만약 업데이트를 하셨다면 자녀분을 다시 등록하여 실행해 주세요" delegate:self cancelButtonTitle:@"확인" otherButtonTitles:nil, nil];
         alertView.tag = 2;
         [alertView show];
     }else{

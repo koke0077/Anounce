@@ -111,7 +111,7 @@
             rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"알림내용" withString:@""];
             rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"*" withString:@""];
             [HTMLList appendString:rangeBlock];
-            [HTMLList appendString:@"%BE%CB%B8%B2%C0%E5"];
+//            [HTMLList appendString:@"%BE%CB%B8%B2%C0%E5"];
             break;
         }
         
