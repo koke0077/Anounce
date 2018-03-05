@@ -217,16 +217,35 @@
     NSString *secondTag;
     NSString *endTag;
     
-    if ([HTML rangeOfString:@"?HG_"].length == 0) {
-        startTag = @" href=\"/hosts";
-        secondTag = @"el01";
-        endTag = @"skin";
-    }else{
-        
+    if ([HTML rangeOfString:@"?GS"].length != 0) {
+        startTag = @"?GS_";
+        secondTag = @"CD=";
+        endTag = @"\"";
+    }else if([HTML rangeOfString:@"?HG_"].length != 0){
         startTag = @"?HG_";
         secondTag = @"CD=";
         endTag = @"\"";
+    }else{
+        startTag = @" href=\"/hosts";
+        secondTag = @"el01";
+        endTag = @"skin";
     }
+    
+//    if ([HTML rangeOfString:@"?HG_"].length == 0) {
+//        startTag = @" href=\"/hosts";
+//        secondTag = @"el01";
+//        endTag = @"skin";
+//    }else if([HTML rangeOfString:@"?GS"].length != 0){
+//        
+//        startTag = @"?GS_";
+//        secondTag = @"CD=";
+//        endTag = @"\"";
+//    }else{
+//        startTag = @"?HG_";
+//        secondTag = @"CD=";
+//        endTag = @"\"";
+//    }
+    
     
     
     NSMutableString *HTMLList = [[NSMutableString alloc] init];
@@ -270,6 +289,15 @@
         endRange = NSMakeRange(startLoc, endLoc - startLoc);
         rangeBlock = [HTML substringWithRange:endRange];
         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"/" withString:@""];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"S11" withString:@"S10"];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"S12" withString:@"S10"];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"S13" withString:@"S10"];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"S14" withString:@"S10"];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"S15" withString:@"S10"];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"S16" withString:@"S10"];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"S17" withString:@"S10"];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"S18" withString:@"S10"];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"S19" withString:@"S10"];
         if([rangeBlock isEqualToString:@"나이스학교코드"]){
         
         }else{
@@ -501,6 +529,8 @@
         self.school_code = @"S100003458";
     }else if([self.sch_url rangeOfString:@"handeul"].length !=0){  //
         self.school_code = @"S100003471";
+    }else if([self.sch_url rangeOfString:@"jyjungang-p"].length !=0){  //진영중앙초
+        self.school_code = @"S160003855";
     }else{
         self.school_code = [self devideHTMLSring2:htmlData];
     }
@@ -515,10 +545,12 @@
         [news_Url appendString:@"mnu=M001006001"]; //갈전초 공지사항 url 추가  (임시방편..ㅜ.ㅜ) 2017.3.8., 진영중앙초등학교 역시...;;
     }else if([self.sch_url containsString:@"munsun"]){//문선초 공지사항 url 추가 (임시방편..ㅜㅜ) 2017.3.8.
         [news_Url appendString:@"mnu=M001010002"];
+    }else if([self.sch_url containsString:@"wolsan-p"]){//월산초 공지사항 url추가(임시방편..ㅜㅜ) 2018.3.5.
+        [news_Url appendString:@"mnu=M001016001"];
     }else{
         [news_Url appendString:[self devideHTMLSringToNews_List:htmlData]];
     }
-    
+
     
     [self.strUrl appendString:self.food_url];
     NSMutableString *now_class = [[NSMutableString alloc]initWithString:self.sch_url];

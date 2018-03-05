@@ -28,7 +28,7 @@
 @protocol FoodGetDelegate<NSObject>
 
 //-(void)compliteGetFood:(NSArray *)food Day:(NSArray *)day Week:(NSArray *)week Month:(NSString *)montn_str;
--(void)compliteGetFood:(NSArray *)food_array;
+-(void)compliteGetFood:(NSArray *)food_array day_cnt:(NSArray *)day_cnt;
 
 @optional
 -(void)failParsingForFood;

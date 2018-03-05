@@ -423,8 +423,13 @@
         int grade_num = [str_grade intValue];
         int class_num = [str_class intValue];
 
-         //
-         frame_str2 = [NSString stringWithFormat:@"%@%d00%d",frame_str2,grade_num+1, class_num+1];
+        if(class_num>8){
+            frame_str2 = [NSString stringWithFormat:@"%@%d0%d",frame_str2,grade_num+1, class_num+1];
+        }else{
+            frame_str2 = [NSString stringWithFormat:@"%@%d00%d",frame_str2,grade_num+1, class_num+1];
+        }
+        
+        
          [mutable_class_url appendString:frame_str1];
          [mutable_class_url appendString:delegate.school_code];
          [mutable_class_url appendString:frame_str2];

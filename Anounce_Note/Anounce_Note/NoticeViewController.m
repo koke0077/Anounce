@@ -29,7 +29,7 @@
     
     
     //    UIFont *font = [UIFont fontWithName:@"System-Bold" size:20];
-    NSString *string = @"다문화 가정을 위하여 투데이 알림장 학급 알림에서 총 15개국어를 지원합니다.";
+    NSString *string = @"다문화 가정을 위하여 투데이 알림장 학급 알림에서 총 15개국어를 지원합니다.\n 알림장 내용이 보이지 않는 오류와 식단이 보이지 않거나 식단을 보려면 앱이 꺼지는 현상을 수정하였습니다.";
     NSDictionary *attributtes = @{
                                   NSParagraphStyleAttributeName : paragraphStyle,
                                   };

@@ -209,8 +209,8 @@
 - (void)showEmail {
     
     NSString *emailTitle = @"투데이 알림장 문의";
-    NSString *messageBody = @"오류학교:  \n\n\n 오류사항(자세히): \n\n\n 건의사항 : \n\n\n\n  이 외에 문제가 발견되면 자세히 적어서 보내주시면 향후 업데이트를 할 때 적극 반영하도록 하겠습니다.";
-    NSArray *toRecipents = [NSArray arrayWithObject:@"medicochu@korea.kr"];
+    NSString *messageBody = @"오류학교:  \n\n\n 오류학년-반:  \n\n\n오류사항(자세히): \n\n\n 건의사항 : \n\n\n\n  이 외에 문제가 발견되면 자세히 적어서 보내주시면 향후 업데이트를 할 때 적극 반영하도록 하겠습니다.";
+    NSArray *toRecipents = [NSArray arrayWithObject:@"wooks820611@korea.kr"];
     NSArray *toRecipents2 = [NSArray arrayWithObject:@"koke0077@gmail.com"];
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];

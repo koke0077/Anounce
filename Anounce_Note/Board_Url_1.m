@@ -102,6 +102,7 @@
         if ([rangeBlock containsString:@"알림"]) {
             rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"amp;" withString:@""];
             rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"알림장" withString:@""];
+            rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"★" withString:@""];
             rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"매일" withString:@""];//안골포초등학교 6-2 알림장 불러오기 오류해결
             rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"우리반" withString:@""];
             rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -111,7 +112,7 @@
             rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"알림내용" withString:@""];
             rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"*" withString:@""];
             [HTMLList appendString:rangeBlock];
-//            [HTMLList appendString:@"%BE%CB%B8%B2%C0%E5"];
+//            [HTMLList appendString:@"%BE%CB%B8%B2%C0%E5"★];
             break;
         }
         
