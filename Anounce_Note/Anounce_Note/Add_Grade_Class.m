@@ -35,6 +35,8 @@
     NSArray *arr5;
     NSArray *arr6;
     
+    NSString *class_code; //2018년 4월 22일 추가
+    
     int com_1;
     int com_2;
     
@@ -251,8 +253,11 @@
         if ([save_class isEqualToString: @"1학년"]) {
             
             if(dic_count == 0){
-                NSString *str = [class_arr objectAtIndex:0];
-                com_2 = (int)str.length;
+//                NSString *str = [class_arr objectAtIndex:0];
+//                com_2 = (int)str.length;
+                
+                NSArray *arr = [class_arr objectAtIndex:0];//각 학년별 반 코드들을 담은 array를 학년에 맞춰서 반환받아와서 개수만큼 반을 보이게 한다.
+                com_2 = (int)arr.count;
             }else{
                 com_2 = (int)arr1.count;
             }
@@ -262,8 +267,10 @@
         }else if ([save_class isEqualToString: @"2학년"]) {
             
             if(dic_count == 0){
-                NSString *str = [class_arr objectAtIndex:1];
-                com_2 = (int)str.length;
+//                NSString *str = [class_arr objectAtIndex:1];
+//                com_2 = (int)str.length;
+                NSArray *arr = [class_arr objectAtIndex:1];//각 학년별 반 코드들을 담은 array를 학년에 맞춰서 반환받아와서 개수만큼 반을 보이게 한다.
+                com_2 = (int)arr.count;
             }else{
                 com_2 = (int)arr2.count;
             }
@@ -273,8 +280,10 @@
         }else if ([save_class isEqualToString: @"3학년"]) {
             
             if(dic_count == 0){
-                NSString *str = [class_arr objectAtIndex:2];
-                com_2 = (int)str.length;
+//                NSString *str = [class_arr objectAtIndex:2];
+//                com_2 = (int)str.length;
+                NSArray *arr = [class_arr objectAtIndex:2];//각 학년별 반 코드들을 담은 array를 학년에 맞춰서 반환받아와서 개수만큼 반을 보이게 한다.
+                com_2 = (int)arr.count;
             }else{
                 com_2 = (int)arr3.count;
             }
@@ -284,8 +293,10 @@
         }else if ([save_class isEqualToString: @"4학년"]) {
             
             if(dic_count == 0){
-                NSString *str = [class_arr objectAtIndex:3];
-                com_2 = (int)str.length;
+//                NSString *str = [class_arr objectAtIndex:3];
+//                com_2 = (int)str.length;
+                NSArray *arr = [class_arr objectAtIndex:3];//각 학년별 반 코드들을 담은 array를 학년에 맞춰서 반환받아와서 개수만큼 반을 보이게 한다.
+                com_2 = (int)arr.count;
             }else{
                 com_2 = (int)arr4.count;
             }
@@ -294,8 +305,10 @@
 //            NSLog(@"%d",com_2);
         }else if ([save_class isEqualToString: @"5학년"]) {
             if(dic_count == 0){
-                NSString *str = [class_arr objectAtIndex:4];
-                com_2 = (int)str.length;
+//                NSString *str = [class_arr objectAtIndex:4];
+//                com_2 = (int)str.length;
+                NSArray *arr = [class_arr objectAtIndex:4];//각 학년별 반 코드들을 담은 array를 학년에 맞춰서 반환받아와서 개수만큼 반을 보이게 한다.
+                com_2 = (int)arr.count;
             }else{
                 com_2 = (int)arr5.count;
             }
@@ -304,8 +317,10 @@
 //            NSLog(@"%d",com_2);
         }else if ([save_class isEqualToString: @"6학년"]) {
             if(dic_count == 0){
-                NSString *str = [class_arr objectAtIndex:5];
-                com_2 = (int)str.length;
+//                NSString *str = [class_arr objectAtIndex:5];
+//                com_2 = (int)str.length;
+                NSArray *arr = [class_arr objectAtIndex:5];//각 학년별 반 코드들을 담은 array를 학년에 맞춰서 반환받아와서 개수만큼 반을 보이게 한다.
+                com_2 = (int)arr.count;
             }else{
                 com_2 = (int)arr6.count;
             }
@@ -417,22 +432,41 @@
             now_year = year;
         }
         
+        class_code = [[class_arr objectAtIndex:[str_grade intValue]-1]objectAtIndex:[str_class intValue]-1] ;
+        
+        /* 2018년 4월 22일 수정
          NSString *frame_str1 = @"/modules/cafe/class/index.jsp?";
          NSString *frame_str2 = [NSString stringWithFormat:@"&m_year=%d&m_code=G00800300300",now_year];
-        
+        */
+        NSString *frame_str1 = @"/modules/cafe/class/index.jsp?";
+        NSString *frame_str2 = [NSString stringWithFormat:@"&m_year=%d&m_code=",now_year];
+        /* 2018년 4월 22일 수정
         int grade_num = [str_grade intValue];
         int class_num = [str_class intValue];
 
         if(class_num>8){
             frame_str2 = [NSString stringWithFormat:@"%@%d0%d",frame_str2,grade_num+1, class_num+1];
         }else{
-            frame_str2 = [NSString stringWithFormat:@"%@%d00%d",frame_str2,grade_num+1, class_num+1];
+            if([delegate.school_url containsString:@"mudong-p"]){//무동초 학급코드 문제
+                if(grade_num == 1 || grade_num == 2){
+                    frame_str2 = [NSString stringWithFormat:@"%@%d00%d",frame_str2,grade_num+1, class_num+4];
+                }else if(grade_num == 3){
+                    frame_str2 = [NSString stringWithFormat:@"%@%d00%d",frame_str2,grade_num+1, class_num+3];
+                }else{
+                    frame_str2 = [NSString stringWithFormat:@"%@%d00%d",frame_str2,grade_num+1, class_num+2];
+                }
+                
+                frame_str2 = [NSString stringWithFormat:@"%@%d00%d",frame_str2,grade_num+1, class_num+2];
+            }else{
+             frame_str2 = [NSString stringWithFormat:@"%@%d00%d",frame_str2,grade_num+1, class_num+1];
+            }
         }
-        
+        */
         
          [mutable_class_url appendString:frame_str1];
          [mutable_class_url appendString:delegate.school_code];
          [mutable_class_url appendString:frame_str2];
+        [mutable_class_url appendString:class_code];
         
         delegate.class_url = mutable_class_url;
 

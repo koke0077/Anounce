@@ -286,7 +286,7 @@
             
         }else if([rangeBlock containsString:@"공통학년"]){ //명서초 에러
             
-        }else if([rangeBlock containsString:@"영재학급"]){ //호암초 에러
+//        }else if([rangeBlock containsString:@"영재학급"]){ //호암초 에러
             
         }else{
             
@@ -294,11 +294,14 @@
         }
         
     }
-    NSString *test1 = [HTMLList objectAtIndex:0];
-    while (![test1 containsString:@"1학년"]) {
-        [HTMLList removeObjectAtIndex:0];
-        test1 = [HTMLList objectAtIndex:0];
+    if(HTMLList.count>0){
+        NSString *test1 = [HTMLList objectAtIndex:0];
+        while (![test1 containsString:@"1학년"]) {
+            [HTMLList removeObjectAtIndex:0];
+            test1 = [HTMLList objectAtIndex:0];
+        }
     }
+    
 //    if([[HTMLList objectAtIndex:0] containsObject:@"1학년"]){
 //        
 //    }else{
@@ -369,8 +372,14 @@
         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"amp;" withString:@""];
         // 3월 26일 수정
         
+        if([HTML containsString:@"영재학급"]){
+            
+        }else if ([HTML containsString:@"소프트"]){
+            
+        } else{
+            [HTMLList addObject:rangeBlock];
+        }
         
-        [HTMLList addObject:rangeBlock];
         
     }
     

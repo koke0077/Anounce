@@ -88,9 +88,9 @@
         id __weak selfweak = self;
         __weak UIActivityIndicatorView *indicator2 = self.myIndi;
         
-        dispatch_async(dQueue, ^{
-            std_data = (NSMutableArray *)[s_data getRecords];
-            std_face_data = (NSMutableArray *)[f_data get_FaceImage];
+        dispatch_async(self->dQueue, ^{
+            self->std_data = (NSMutableArray *)[self->s_data getRecords];
+            self->std_face_data = (NSMutableArray *)[self->f_data get_FaceImage];
             
             id __strong selfStrong = selfweak;
             __strong UIActivityIndicatorView *indi = indicator2;

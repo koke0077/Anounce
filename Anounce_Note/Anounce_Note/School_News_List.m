@@ -158,7 +158,7 @@
     
     [change_url appendString:news_Url_1];
     [change_url appendString:[NSString stringWithFormat:@"&frame=&search_field=&search_word=&category1=&category2=&category3=&wait_flag=&cmd=list&page=%d&nPage=%d",firstPage, secondPage]];
-    
+    //&frame=&search_field=&search_word=&category1=&category2=&category3=&cmd=list&page=11&nPage=2
     [news_get parsingWithSchoolurl:change_url WithSchool_url:school_url_1];
 
 }

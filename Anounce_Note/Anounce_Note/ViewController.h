@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "NoteURL_Make.h"
 #import "Edu_News_List.h"
+#import "Send_News.h"
 @protocol TerminalViewDelegate;
 @class NoteURL_Make;
 @class Edu_News_List;
+
 
 @interface ViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource, NoteURL_MakeDelegate, EduNewsListDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;

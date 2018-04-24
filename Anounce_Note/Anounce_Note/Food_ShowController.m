@@ -50,7 +50,7 @@
 @end
 
 @implementation Food_ShowController
-@synthesize food_url, food_arr=_food_arr;
+@synthesize food_url, food_arr=_food_arr, food_dic;
 
 //-(Food_Get *)f_get{
 //    if (_f_get == nil) {
@@ -97,7 +97,8 @@
     NSDate *date = [NSDate date];
     
     arr_day = [[NSMutableArray alloc]init];
-    arr_day = @[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"17",@"18",@"19",@"20",@"21",@"22",@"23",@"24",@"25",@"26",@"27",@"28",@"29",@"30",@"31"];
+    NSArray *temp_Arr = @[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"17",@"18",@"19",@"20",@"21",@"22",@"23",@"24",@"25",@"26",@"27",@"28",@"29",@"30",@"31"];
+    [arr_day addObjectsFromArray:temp_Arr];
     mon_count = @[@"31",@"28",@"31",@"30",@"31",@"30",@"31",@"31",@"30",@"31",@"30",@"31"];
     now_count = 0;
     

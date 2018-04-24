@@ -104,6 +104,9 @@
             rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"알림장" withString:@""];
             rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"★" withString:@""];
             rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"매일" withString:@""];//안골포초등학교 6-2 알림장 불러오기 오류해결
+            rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"매일매일" withString:@""];//안골포초등학교 6-2 알림장 불러오기 오류해결
+            rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"꿈을" withString:@""];//안골포초등학교 6-2 알림장 불러오기 오류해결
+            rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"꾸는" withString:@""];//안골포초등학교 6-2 알림장 불러오기 오류해결
             rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"우리반" withString:@""];
             rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@" " withString:@""];
             rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"\">" withString:@""];

@@ -18,12 +18,14 @@
     Pass_lms_Class *p_lms;
     Board_Url_1 *b_url_1;
     Board_Url_2 *b_url_2;
+    Send_News *send_news;
 }
 
 @property NSString *frame_str1;//홈페이지 페이지소스를 보기위해 삽입할 주소
 @property NSString *frame_str2;
 @property NSMutableString *note_url;
 @property (weak, nonatomic) IBOutlet UITextField *name_txt;
+@property NSString *comunity_url;
 
 @property UIActivityIndicatorView *indicator;
 @property UILabel *loading;
@@ -96,6 +98,10 @@
     
     b_url_2 = [[Board_Url_2 alloc]init];
     b_url_2.delegate = self;
+    
+    send_news = [[Send_News alloc]init];
+    send_news.delegate = self;
+    [send_news parsingWithSchoolurl:delegate.school_url];
 
 }
 
@@ -119,6 +125,10 @@
     }
     
     return dateFormatter;
+}
+
+-(void)compliteToGetSendNewsList:(NSString *)news_url{
+    self.comunity_url = news_url;
 }
 
 -(void)completeClassParsing:(NSString *)note_url Is_On:(BOOL)is_on{
@@ -242,7 +252,9 @@
     
 //    [s_data addDataWithName:self.name_txt.text School:delegate.school_name Grade:delegate.school_grade Class:delegate.school_class School_Url:delegate.school_url Food_Url:delegate.food_url Note_Url:delegate.lms_url News_Url:delegate.news_url] ;
     
-    [s_data addDataWithName:self.name_txt.text School:delegate.school_name Grade:delegate.school_grade Class:delegate.school_class School_Url:delegate.school_url Food_Url:delegate.school_code_noncode Note_Url:delegate.lms_url News_Url:delegate.news_url] ;
+//    [s_data addDataWithName:self.name_txt.text School:delegate.school_name Grade:delegate.school_grade Class:delegate.school_class School_Url:delegate.school_url Food_Url:delegate.school_code_noncode Note_Url:delegate.lms_url News_Url:delegate.news_url] ;
+    
+    [s_data addToDataWithName:self.name_txt.text School:delegate.school_name Grade:delegate.school_grade Class:delegate.school_class School_Url:delegate.school_url Food_Url:delegate.school_code_noncode Note_Url:delegate.lms_url News_Url:delegate.news_url School_News_Url:self.comunity_url];
     
     [f_data addWithImageData:img_data ByName:self.name_txt.text];
     

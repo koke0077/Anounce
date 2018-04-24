@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Anounce_Note.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>armv7</string>
+				<string>arm64</string>
+			</array>
+			<key>bitcode</key>
+			<true/>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>7DDC7B9AA652C64398559BFECB82C67DD17C930C</string>
+				<key>dateExpires</key>
+				<string>2019. 4. 2.</string>
+				<key>type</key>
+				<string>iOS Distribution</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>X2M45VLTRW.com.koke007.Anounce-Note</string>
+				<key>beta-reports-active</key>
+				<true/>
+				<key>com.apple.developer.team-identifier</key>
+				<string>X2M45VLTRW</string>
+				<key>get-task-allow</key>
+				<false/>
+				<key>keychain-access-groups</key>
+				<array>
+					<string>X2M45VLTRW.com.koke007.Anounce-Note</string>
+				</array>
+			</dict>
+			<key>name</key>
+			<string>Anounce_Note.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>602ed937-0c2d-4a23-9d5d-50ab5c9199a1</string>
+				<key>name</key>
+				<string>iOS Team Store Provisioning Profile: com.koke007.Anounce-Note</string>
+			</dict>
+			<key>symbols</key>
+			<true/>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>X2M45VLTRW</string>
+				<key>name</key>
+				<string>sung jun kim</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

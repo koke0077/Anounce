@@ -19,6 +19,16 @@
               Note_Url:(NSString *)note_url
               News_Url:(NSString *)news_url;
 
+-(void)addToDataWithName:(NSString *)name
+                School:(NSString *)school
+                 Grade:(NSString *)grade
+                 Class:(NSString *)class_num
+            School_Url:(NSString *)school_url
+              Food_Url:(NSString *)food_url
+              Note_Url:(NSString *)note_url
+              News_Url:(NSString *)news_url
+       School_News_Url:(NSString *)school_news_url;
+
 -(void)removeDataWithStudents_Namd:(NSString *)name;
 
 -(void)upDateWithName:(NSString *)name
@@ -31,6 +41,21 @@
              News_Url:(NSString *)news_url
                 RowId:(int)rowid;
 
+-(void)upDateToWithName:(NSString *)name
+               School:(NSString *)school
+                Grade:(NSString *)grade
+                Class:(NSString *)class_num
+           School_Url:(NSString *)school_url
+             Food_Url:(NSString *)food_url
+             Note_Url:(NSString *)note_url
+             News_Url:(NSString *)news_url
+      School_News_Url:(NSString *)school_news_url
+                RowId:(int)rowid;
+
+-(int)isColumnInTable; //컬럼 존재 여부 확인
+-(void)alterWithSchoolNewsUrl; //컬럼 추가하기
+
+-(NSArray *)getNameRecord;
 -(NSArray *)getRecords;
 
 -(NSString *)getSchoolUrlBySchool_name:(NSString *)school_name;

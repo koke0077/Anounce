@@ -18,6 +18,9 @@
 #include <dispatch/dispatch.h>
 #import "Students_ManageController.h"
 #import "NoticeViewController.h"
+#import "School_Comunity_List.h"
+#import "High_School_Data_Manager.h"
+//#import "Send_News.h"
 
 
 @interface ViewController (){
@@ -40,6 +43,7 @@
     int page;
     BOOL is_new;
     
+    NSString *school_comunity;
     
 }
 @property (weak, nonatomic) IBOutlet UILabel *lbl_title;
@@ -69,6 +73,9 @@ NSInteger const SMEPGiPadViewControllerCellWidth = 300;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//    High_School_Data_Manager *h_school = [[High_School_Data_Manager alloc]init];
+//    NSLog(@"%@",[h_school loadDataWithSchool2:@"창원시"]);
  
     is_load_data = NO;
     is_pars_data = NO;
@@ -95,6 +102,26 @@ NSInteger const SMEPGiPadViewControllerCellWidth = 300;
     f_data = [[Students_Face_Managert alloc]init];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
+    
+    int now_state = [s_data isColumnInTable];
+    if(now_state == 100){//기존 버전일 경우 해당 컬럼이 없기 때문에 100을 반환받는다.
+        
+        NSArray *name_arr = [s_data getNameRecord];
+        NSLog(@"%ld",name_arr.count);
+        if(name_arr.count > 0){
+            for(int i = 0; i<name_arr.count ; i++){
+                [s_data removeDataWithStudents_Namd:[name_arr objectAtIndex:i]];
+            }
+        }
+        [s_data alterWithSchoolNewsUrl];
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"버전 업데이트" message:@"가정통신문 기능이 추가되었습니다. 기존에 등록되어 있던 자료는 삭제되었습니다. 불편하시더라도 자녀를 다시 등록해 이용하시기 바랍니다. 아울러 이번 업데이트에서는 초등학교만 우선 반영합니다. 중학교와 고등학교와 관련한 데이터의 유효성이 입증되지 않아 이번 업데이트에서는 빠지게 되었습니다. 하지만 5월 중에 있을 대규모 업데이트에서는 중학교와 고등학교까지 모두 반영될 예정입니다. " delegate:self cancelButtonTitle:@"확인" otherButtonTitles:nil, nil];
+        alertView.tag = 1;
+        [alertView show];
+        
+    }else if(now_state == 2){//School_news_url 컬럼이 있을 경우 alter가 실행되지 못하고 2를 반환한다.
+        NSLog(@"에러~~~");
+    }
     
     
     self.tableview.delegate = self;
@@ -282,11 +309,11 @@ NSInteger const SMEPGiPadViewControllerCellWidth = 300;
         id __weak selfweak = self;
 //         __weak UIActivityIndicatorView *indicator2 = self.myIndi;
         
-        dispatch_async(dQueue, ^{
-            std_arr = [s_data getRecords];
-            face_arr = [f_data get_FaceImage];
+        dispatch_async(self->dQueue, ^{
+            self->std_arr = [self->s_data getRecords];
+            self->face_arr = [self->f_data get_FaceImage];
             
-            is_load_data = YES;
+            self->is_load_data = YES;
             id __strong selfStrong = selfweak;
 //            __strong UIActivityIndicatorView *indi = indicator2;
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -429,6 +456,10 @@ NSInteger const SMEPGiPadViewControllerCellWidth = 300;
     
     [super viewWillAppear:YES];
     
+//    Send_News *send_news = [[Send_News alloc]init];
+//    send_news.delegate = self;
+//    [send_news parsingWithSchoolurl:@"http://ara-p.gne.go.kr"];
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     int notice_num = 0;
     notice_num = (int)[defaults integerForKey:@"notice"];
@@ -521,6 +552,13 @@ NSInteger const SMEPGiPadViewControllerCellWidth = 300;
     
 }
 
+//-(void)compliteToGetSendNewsList:(NSString *)news_url{
+//    school_comunity = @"http://ara-p.gne.go.kr";
+//    School_Comunity_List_Get *school_comunity_list_get = [[School_Comunity_List_Get alloc]init];
+//    [school_comunity_list_get parsingWithListUrl:news_url WithSchool_url:school_comunity];
+//
+//}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier  isEqual: @"Note"]) {
@@ -529,6 +567,7 @@ NSInteger const SMEPGiPadViewControllerCellWidth = 300;
 //        
 //        NSDictionary *ok_dic = [std_arr objectAtIndex:[[arr objectAtIndex:0]row]];
         NSString *school_url = [ok_dic objectForKey:@"school_url"];
+        
         [[segue destinationViewController] setSchool_url1:school_url];
         [[segue destinationViewController] setStudent_dic:ok_dic];
 
@@ -549,6 +588,13 @@ NSInteger const SMEPGiPadViewControllerCellWidth = 300;
         [[segue destinationViewController] setNews_Url_1:news_url];
         [[segue destinationViewController] setSchool_name_ok:str_school_name];
         
+    }else if ([segue.identifier isEqual:@"comunity"]){
+        NSString *school_comunity_url = [ok_dic objectForKey:@"school_news_url"];
+        NSString *school_url = [ok_dic objectForKey:@"school_url"];
+        NSString *str_school_name = [ok_dic objectForKey:@"school"];
+        [[segue destinationViewController] setComunity_url:school_comunity_url];
+        [[segue destinationViewController] setSchool_url_1:school_url];
+        [[segue destinationViewController] setSchool_name_ok:str_school_name];
     }
 }
 

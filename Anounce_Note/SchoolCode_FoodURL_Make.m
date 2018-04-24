@@ -472,7 +472,133 @@
     return HTMLList;
 }
 
+- (NSString *)devideHTMLSringToNews_List2:(NSString *)HTML{
+    NSString *startTag;
+    NSString *secondTag;
+    NSString *endTag;
+    
+    
+    startTag = @"s_menu_wrap";
+    secondTag = @"href=\"";
+    if([HTML containsString:@"학교알림판"]){
+        endTag = @"학교알림판";
+    }else{
+        endTag = @"공지사항";
+    }
+    
+    NSString *HTMLList = @"";
+    
+    
+    int startLoc;
+    int endLoc;
+    
+    NSRange aRange = NSMakeRange(0, [HTML length]);
+    
+    while (YES) {
+        
+        aRange = [HTML rangeOfString:startTag options:NSCaseInsensitiveSearch range:aRange];
+        
+        //검색을 했을 때 검색 결과가 없으면 length가 0이 되므로 While 문을 종료한다.
+        if (aRange.length == 0) break;
+        
+        //검색을 완료하였을 경우에 검색에서 찾은 부분의
+        //가장 앞부분의 위치가 Location에 저장되고, 그 Location을 startLoc에 저장한다.
+        startLoc = (int)aRange.location;
+        
+        //aRange의 length를 전체 HTML String에서 처음 검색된 부분의 위치를 뺀다.
+        aRange.length = HTML.length - startLoc;
+        
+        aRange = [HTML rangeOfString:secondTag options:NSCaseInsensitiveSearch range:aRange];
+        
+        startLoc = (int)aRange.location;
+        aRange.length = HTML.length - startLoc;
+        
+        startLoc = (int)startLoc + (int)secondTag.length;
+        
+        aRange = [HTML rangeOfString:endTag options:NSCaseInsensitiveSearch range:aRange];
+        endLoc = (int)aRange.location;
+        
+        aRange.length = HTML.length - endLoc;
+        
+        NSRange endRange;
+        NSString *rangeBlock;
+        
+        endRange = NSMakeRange(startLoc, endLoc - startLoc);
+        rangeBlock = [HTML substringWithRange:endRange];
+        //        rangeBlock = [self stripTags:rangeBlock];
+        
+        //         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@" " withString:@""];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"<br />" withString:@""];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"</div>" withString:@""];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"amp;" withString:@""];
+        HTMLList = rangeBlock;
+        break;
+    }
+    //    HTMLList = [HTMLList2 lastObject];
+    return HTMLList;
+}
 
+- (NSString *)devideHTMLSringToNews_List3:(NSString *)HTML{
+    NSString *startTag;
+    NSString *secondTag;
+    NSString *endTag;
+    
+    
+    startTag = @"<li";
+    secondTag = @"href=\"";
+    endTag = @"\">";
+    
+    NSMutableArray *HTMLList2 = [NSMutableArray array];
+    NSString *HTMLList = @"";
+    
+    int startLoc;
+    int endLoc;
+    
+    NSRange aRange = NSMakeRange(0, [HTML length]);
+    
+    while (YES) {
+        
+        aRange = [HTML rangeOfString:startTag options:NSCaseInsensitiveSearch range:aRange];
+        
+        //검색을 했을 때 검색 결과가 없으면 length가 0이 되므로 While 문을 종료한다.
+        if (aRange.length == 0) break;
+        
+        //검색을 완료하였을 경우에 검색에서 찾은 부분의
+        //가장 앞부분의 위치가 Location에 저장되고, 그 Location을 startLoc에 저장한다.
+        startLoc = (int)aRange.location;
+        
+        //aRange의 length를 전체 HTML String에서 처음 검색된 부분의 위치를 뺀다.
+        aRange.length = HTML.length - startLoc;
+        
+        aRange = [HTML rangeOfString:secondTag options:NSCaseInsensitiveSearch range:aRange];
+        
+        startLoc = (int)aRange.location;
+        aRange.length = HTML.length - startLoc;
+        
+        startLoc = (int)startLoc + (int)secondTag.length;
+        
+        aRange = [HTML rangeOfString:endTag options:NSCaseInsensitiveSearch range:aRange];
+        endLoc = (int)aRange.location;
+        
+        aRange.length = HTML.length - endLoc;
+        
+        NSRange endRange;
+        NSString *rangeBlock;
+        
+        endRange = NSMakeRange(startLoc, endLoc - startLoc);
+        rangeBlock = [HTML substringWithRange:endRange];
+        //        rangeBlock = [self stripTags:rangeBlock];
+        
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"<br />" withString:@""];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"</div>" withString:@""];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"amp;" withString:@""];
+        [HTMLList2 addObject:rangeBlock];
+        //        break;
+    }
+    
+    HTMLList = [HTMLList2 lastObject];
+    return HTMLList;
+}
 
 - (NSString *)stripTags:(NSString *)str
 {
@@ -541,16 +667,25 @@
     [news_Url appendString:@"/index.jsp?"];
     [news_Url appendString:self.school_code];
     [news_Url appendString:@"&"];
+    
+//    if([htmlData containsString:@",,false"]){
+//        [news_Url appendString:[self devideHTMLSringToNews_List:htmlData]];
+//    }else{
+        NSString *test_str1 = [self devideHTMLSringToNews_List2:htmlData];
+        NSString *test_str2 = [self devideHTMLSringToNews_List3:test_str1];
+        [news_Url appendString:test_str2];
+//    }
+    /*
     if([self.sch_url containsString:@"galjeon"] || [self.sch_url containsString:@"jyjungang"]){
         [news_Url appendString:@"mnu=M001006001"]; //갈전초 공지사항 url 추가  (임시방편..ㅜ.ㅜ) 2017.3.8., 진영중앙초등학교 역시...;;
     }else if([self.sch_url containsString:@"munsun"]){//문선초 공지사항 url 추가 (임시방편..ㅜㅜ) 2017.3.8.
         [news_Url appendString:@"mnu=M001010002"];
-    }else if([self.sch_url containsString:@"wolsan-p"]){//월산초 공지사항 url추가(임시방편..ㅜㅜ) 2018.3.5.
-        [news_Url appendString:@"mnu=M001016001"];
+//    }else if([self.sch_url containsString:@"wolsan-p"]){//월산초 공지사항 url추가(임시방편..ㅜㅜ) 2018.3.5.
+//        [news_Url appendString:@"mnu=M001016001"];
     }else{
         [news_Url appendString:[self devideHTMLSringToNews_List:htmlData]];
     }
-
+*/
     
     [self.strUrl appendString:self.food_url];
     NSMutableString *now_class = [[NSMutableString alloc]initWithString:self.sch_url];

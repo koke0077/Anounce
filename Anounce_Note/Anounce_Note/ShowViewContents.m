@@ -262,7 +262,7 @@
                           delay:0.1
                         options: 1
                      animations:^{
-                         v1.frame = CGRectMake(0, self.view.frame.size.height-150, v1.frame.size.width , v1.frame.size.height);
+                         self->v1.frame = CGRectMake(0, self.view.frame.size.height-150, self->v1.frame.size.width , self->v1.frame.size.height);
                      }
                      completion:^(BOOL finished){
                      }];
@@ -276,7 +276,7 @@
                           delay:0.1
                         options: 1
                      animations:^{
-                         v1.frame = CGRectMake(0, self.view.frame.size.height+150, v1.frame.size.width , v1.frame.size.height);
+                         self->v1.frame = CGRectMake(0, self.view.frame.size.height+150, self->v1.frame.size.width , self->v1.frame.size.height);
                      }
                      completion:^(BOOL finished){
                      }];
@@ -548,7 +548,7 @@
                                                           self.txt_view.text = jpn_str;
                                                       }
                                                        */
-                                                      trans_str[cnt] = temp_str;
+                                                      self->trans_str[cnt] = temp_str;
                                                       self.txt_view.text = temp_str;
                                                       
                                                       [self.indicator stopAnimating];
