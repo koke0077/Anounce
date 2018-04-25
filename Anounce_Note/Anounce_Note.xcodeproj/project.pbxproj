@@ -107,7 +107,7 @@
 		858A129A208E31A3001BAB03 /* High_School_Data_Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A1299208E31A3001BAB03 /* High_School_Data_Manager.m */; };
 		858A129C208E3804001BAB03 /* high_school_data.sqlite2 in Resources */ = {isa = PBXBuildFile; fileRef = 858A129B208E3804001BAB03 /* high_school_data.sqlite2 */; };
 		858A129E208E4D81001BAB03 /* school_data11.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 858A129D208E4D80001BAB03 /* school_data11.sqlite */; };
-		858A12A0208F9806001BAB03 /* school_data12.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 858A129F208F9806001BAB03 /* school_data12.sqlite */; };
+		858A12A220909F9C001BAB03 /* school_data12.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 858A12A120909F9C001BAB03 /* school_data12.sqlite */; };
 		85977CD92084DCB000C5FC47 /* School_Comunity_List.m in Sources */ = {isa = PBXBuildFile; fileRef = 85977CD82084DCB000C5FC47 /* School_Comunity_List.m */; };
 		85977CDC2084DDCD00C5FC47 /* School_Comunity_List_Get.m in Sources */ = {isa = PBXBuildFile; fileRef = 85977CDB2084DDCD00C5FC47 /* School_Comunity_List_Get.m */; };
 		85977CDF2084DDF500C5FC47 /* School_Comunity_Content_Get.m in Sources */ = {isa = PBXBuildFile; fileRef = 85977CDE2084DDF500C5FC47 /* School_Comunity_Content_Get.m */; };
@@ -277,7 +277,7 @@
 		858A1299208E31A3001BAB03 /* High_School_Data_Manager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = High_School_Data_Manager.m; sourceTree = "<group>"; };
 		858A129B208E3804001BAB03 /* high_school_data.sqlite2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = high_school_data.sqlite2; sourceTree = "<group>"; };
 		858A129D208E4D80001BAB03 /* school_data11.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = school_data11.sqlite; sourceTree = "<group>"; };
-		858A129F208F9806001BAB03 /* school_data12.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = school_data12.sqlite; sourceTree = "<group>"; };
+		858A12A120909F9C001BAB03 /* school_data12.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = school_data12.sqlite; sourceTree = "<group>"; };
 		85977CD72084DCB000C5FC47 /* School_Comunity_List.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = School_Comunity_List.h; sourceTree = "<group>"; };
 		85977CD82084DCB000C5FC47 /* School_Comunity_List.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = School_Comunity_List.m; sourceTree = "<group>"; };
 		85977CDA2084DDCD00C5FC47 /* School_Comunity_List_Get.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = School_Comunity_List_Get.h; sourceTree = "<group>"; };
@@ -469,7 +469,7 @@
 		15F9FCD11AFF205A00D6E7D5 /* Sq_Data */ = {
 			isa = PBXGroup;
 			children = (
-				858A129F208F9806001BAB03 /* school_data12.sqlite */,
+				858A12A120909F9C001BAB03 /* school_data12.sqlite */,
 				858A129D208E4D80001BAB03 /* school_data11.sqlite */,
 				858A129B208E3804001BAB03 /* high_school_data.sqlite2 */,
 				858A1296208E3166001BAB03 /* high_school_data2.sqlite */,
@@ -679,6 +679,7 @@
 				15CA2C0A1B1DEF2700C2A41D /* 합천.png in Resources */,
 				15CA2C131B1DEF2700C2A41D /* 사천.png in Resources */,
 				858A129E208E4D81001BAB03 /* school_data11.sqlite in Resources */,
+				858A12A220909F9C001BAB03 /* school_data12.sqlite in Resources */,
 				15CA2C141B1DEF2700C2A41D /* 거제.png in Resources */,
 				8573509D1E68731A00A20010 /* school_data4.sqlite in Resources */,
 				152BD9371CA91646001CF4CB /* QnA.png in Resources */,
@@ -702,7 +703,6 @@
 				15CA2C111B1DEF2700C2A41D /* 밀양.png in Resources */,
 				15EC48D21AFDC794002D75F8 /* LaunchScreen.xib in Resources */,
 				15EC48CF1AFDC794002D75F8 /* Images.xcassets in Resources */,
-				858A12A0208F9806001BAB03 /* school_data12.sqlite in Resources */,
 				15D197841B2288700075053E /* item_1.png in Resources */,
 				15F9FCC41AFDFD7A00D6E7D5 /* a_4@2x.png in Resources */,
 				15CA2C0F1B1DEF2700C2A41D /* 하동.png in Resources */,

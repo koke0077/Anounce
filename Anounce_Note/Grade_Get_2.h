@@ -21,4 +21,7 @@
 @protocol GradeGet2Delegate
 -(void)compliteGetGrade_2_Class:(NSArray *)cls_num;
 
+@optional
+-(void)failParsingGrade_get2;
+
 @end

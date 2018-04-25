@@ -46,6 +46,7 @@
 }
 
 @property UIActivityIndicatorView *indicator;
+@property (weak, nonatomic) IBOutlet UIButton *next_btn;
 
 @property (weak, nonatomic) IBOutlet UILabel *lbl_school;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_grade;
@@ -65,6 +66,8 @@
     [super viewDidLoad];
     
     [self indi_start];
+    
+    [self.next_btn setEnabled:NO];
     
     com_2 = 0;
     
@@ -160,13 +163,13 @@
 //    
 //}
 
--(void)compliteGetGradeClass2:(NSArray *)cls_arr{
- 
-    class_arr = cls_arr;
-    //
-    //    [self.picker reloadAllComponents];
-    
-}
+//-(void)compliteGetGradeClass2:(NSArray *)cls_arr{
+//
+//    class_arr = cls_arr;
+//    //
+//    //    [self.picker reloadAllComponents];
+//
+//}
 
 -(void)compliteGetGradeClass:(NSDictionary *)cls_num  classArr:(NSArray *)cls_arr{
     
@@ -175,6 +178,12 @@
     
     if([class_dic allKeys].count == 0){
         dic_count = 0;
+        
+        [self.indicator stopAnimating];
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"일시 장애" message:@"데이터를 가져오는데 실패했습니다. 다시 시도해주세요." delegate:self cancelButtonTitle:@"확인" otherButtonTitles:nil, nil];
+        alertView.tag = 2;
+        [alertView show];
         
     }else{
                 
@@ -189,7 +198,7 @@
     }
     
     
-    
+    [self.next_btn setEnabled:YES];
     [self.picker reloadAllComponents];
     
 }
@@ -197,7 +206,7 @@
 -(void)compliteGetGrade_2_Class:(NSArray *)cls_num{
     
     class_arr = cls_num;
-    
+    [self.next_btn setEnabled:YES];
     [self.picker reloadAllComponents];
 }
 
@@ -212,6 +221,25 @@
     [alertView show];
     
 }
+
+
+-(void)failParsingGrade_get2{
+    [self.indicator stopAnimating];
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"일시 장애" message:@"데이터를 가져오는데 실패했습니다. 다시 시도해주세요." delegate:self cancelButtonTitle:@"확인" otherButtonTitles:nil, nil];
+    alertView.tag = 2;
+    [alertView show];
+}
+
+
+-(void)failParsingGrade_get{
+    [self.indicator stopAnimating];
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"일시 장애" message:@"데이터를 가져오는데 실패했습니다. 다시 시도해주세요." delegate:self cancelButtonTitle:@"확인" otherButtonTitles:nil, nil];
+    alertView.tag = 2;
+    [alertView show];
+}
+
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0 && alertView.tag == 1) {
@@ -235,6 +263,8 @@
     delegate.school_code = note_url;
     
 }
+
+
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     
@@ -399,9 +429,12 @@
 }
 
 - (IBAction)btn_next:(UIButton *)sender {
-    
-    
-    NSString *str_class = [self.lbl_class.text stringByReplacingOccurrencesOfString:@"반" withString:@""];
+    NSString *str_class;
+    if(self.lbl_class.text !=nil){
+         str_class = [self.lbl_class.text stringByReplacingOccurrencesOfString:@"반" withString:@""];
+    }else{
+        str_class = @"1";
+    }
     
     NSString *class_url = [[class_dic objectForKey:self.lbl_grade.text] objectAtIndex:[str_class intValue]-1];
     

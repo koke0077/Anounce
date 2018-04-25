@@ -330,27 +330,29 @@
     
 //        startTag = @"학급까페";
 //    }
-    
+    startTag = @"메인메뉴";
+    NSString *secondTag = @"<div";
+    NSString *endTag;
     if([HTML rangeOfString:@"우리학급,/"].length != 0){
-        startTag = @"우리학급";
+        endTag = @"우리학급";
     }else if([HTML rangeOfString:@"우리교실"].length !=0){
-        startTag = @"우리교실";
+        endTag = @"우리교실";
     }else if([HTML rangeOfString:@"학급홈페이지,/"].length !=0){
-        startTag = @"학급홈페이지";
+        endTag = @"학급홈페이지";
     }else if([HTML rangeOfString:@"어린이마당,/"].length !=0){
-        startTag = @"어린이마당";
+        endTag = @"어린이마당";
     }else if([HTML rangeOfString:@"학급 홈페이지,/"].length !=0){
-        startTag = @"학급 홈페이지";
+        endTag = @"학급 홈페이지";
     }else if([HTML rangeOfString:@"우리학급홈페이지"].length !=0){
-        startTag = @"우리학급홈페이지";
+        endTag = @"우리학급홈페이지";
     }else if([HTML rangeOfString:@"우리반홈페이지"].length !=0){
-        startTag = @"우리반홈페이지";
+        endTag = @"우리반홈페이지";
     }else{
-        startTag = @"학급";
+        endTag = @"학급";
     }
     
-    NSString *secondTag = @"mnu=";
-    NSString *endTag = @",";
+    
+    
     
     int startLoc;
     int endLoc;
@@ -390,8 +392,11 @@
 
         endRange = NSMakeRange(startLoc, endLoc - startLoc);
         rangeBlock = [HTML substringWithRange:endRange];
-
-        break;
+        
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@">\"" withString:@""];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"\">" withString:@""];
+        
+        rangeBlock = [rangeBlock substringFromIndex:[rangeBlock length]-10];
     }
     return rangeBlock;
 }
@@ -482,7 +487,11 @@
     secondTag = @"href=\"";
     if([HTML containsString:@"학교알림판"]){
         endTag = @"학교알림판";
-    }else{
+    }else if([HTML containsString:@"학교소식"]){
+        endTag = @"학교소식";
+    }else if([HTML containsString:@"공지 사항"]){
+        endTag = @"공지 사항";
+    } else{
         endTag = @"공지사항";
     }
     
@@ -713,8 +722,13 @@
 //        if([htmlData rangeOfString:@"학급홈페이지"].length !=0 || [htmlData rangeOfString:@"학급마당"].length !=0){
             [now_class appendString:@"/index.jsp?"];
             [now_class appendString:self.school_code];
-            [now_class appendString:@"&mnu="];
+            [now_class appendString:@"&mnu="]; //mnu=M001007001
+//        if([delegate.school_url containsString:@"gagopa"]){
+//            [now_class appendString:@"M001007001"];
+//        }else{
             [now_class appendString:[self devideHTMLSringClass:htmlData]];
+//        }
+        
             
             
             delegate.is_str = 1;

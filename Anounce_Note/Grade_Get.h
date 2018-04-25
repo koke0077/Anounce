@@ -26,6 +26,7 @@
 -(void)compliteGetGradeClass:(NSDictionary *)cls_num classArr:(NSArray *)cls_arr;
 //-(void)compliteGetGradeClass2:(NSArray *)cls_arr;
 
-
+@optional
+-(void)failParsingGrade_get;
 
 @end

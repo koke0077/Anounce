@@ -242,6 +242,37 @@ static sqlite3 *database = nil;
     
 }
 
+-(void)UpdateWithName:(NSString *)s_name Web_add:(NSString *)web_add{
+    NSString *data_document = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
+    NSString *data_Path = [data_document stringByAppendingPathComponent:@"school_data12.sqlite"];
+    
+    if (sqlite3_open([data_Path UTF8String], &database)) {
+        sqlite3_close(database);
+        NSLog(@"초기화 오류");
+        return;
+    }
+    
+    sqlite3_stmt *statement;
+    
+    char *sql = "update schools set Web_Address=? where Name=?";
+    
+    if (sqlite3_prepare_v2(database, sql , -1, &statement, NULL) != SQLITE_OK) {
+        NSLog(@"데이터 업데이트 오류");
+    }else{
+        
+        sqlite3_bind_text(statement, 1, [web_add UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(statement, 2, [s_name UTF8String], -1, SQLITE_TRANSIENT);
+        
+        if (sqlite3_step(statement) != SQLITE_DONE) {
+            NSLog(@"업데이트 저장에러");
+        }
+        
+    }
+    
+    sqlite3_finalize(statement);
+    sqlite3_close(database);
+}
+
 -(void)addDataWithNo:(int)no
               Region:(NSString *)region
                 Name:(NSString *)name
@@ -353,6 +384,8 @@ static sqlite3 *database = nil;
     return exist_data;
 
 }
+
+
 
 -(int)exist_School:(NSString *)name Region:(NSString *)region{
     

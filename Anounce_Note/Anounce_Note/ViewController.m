@@ -20,6 +20,7 @@
 #import "NoticeViewController.h"
 #import "School_Comunity_List.h"
 #import "High_School_Data_Manager.h"
+#import "School_Data_Manager.h"
 //#import "Send_News.h"
 
 
@@ -103,6 +104,18 @@ NSInteger const SMEPGiPadViewControllerCellWidth = 300;
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
+    School_Data_Manager *school_data = [[School_Data_Manager alloc]init];
+    NSString *web_add = [school_data loadDataWithSchool_Url:@"무동초등학교"];
+    if([web_add containsString:@"mudong"]){
+        
+    }else{
+        [school_data UpdateWithName:@"무동초등학교" Web_add:@"mudong-p.gne.go.kr"];
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"1.3.1 긴급 업데이트" message:@"2018.4.25.에 실시된 업데이트를 통해 가정통신문 기능이 추가되었습니다. 하지만 일부 학교에서 앱이 꺼지는 현상이 발생하여 긴급 업데이트를 하였습니다. 불편을 드려 죄송합니다. " delegate:self cancelButtonTitle:@"확인" otherButtonTitles:nil, nil];
+        alertView.tag = 1;
+        [alertView show];
+    }
+    
     int now_state = [s_data isColumnInTable];
     if(now_state == 100){//기존 버전일 경우 해당 컬럼이 없기 때문에 100을 반환받는다.
         
@@ -114,10 +127,6 @@ NSInteger const SMEPGiPadViewControllerCellWidth = 300;
             }
         }
         [s_data alterWithSchoolNewsUrl];
-        
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"버전 업데이트" message:@"가정통신문 기능이 추가되었습니다. 기존에 등록되어 있던 자료는 삭제되었습니다. 불편하시더라도 자녀를 다시 등록해 이용하시기 바랍니다. 아울러 이번 업데이트에서는 초등학교만 우선 반영합니다. 중학교와 고등학교와 관련한 데이터의 유효성이 입증되지 않아 이번 업데이트에서는 빠지게 되었습니다. 하지만 5월 중에 있을 대규모 업데이트에서는 중학교와 고등학교까지 모두 반영될 예정입니다. " delegate:self cancelButtonTitle:@"확인" otherButtonTitles:nil, nil];
-        alertView.tag = 1;
-        [alertView show];
         
     }else if(now_state == 2){//School_news_url 컬럼이 있을 경우 alter가 실행되지 못하고 2를 반환한다.
         NSLog(@"에러~~~");

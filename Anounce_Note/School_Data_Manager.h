@@ -25,6 +25,8 @@
                  Name:(NSString *)name
                  Web_Address:(NSString *)web_address;
 
+- (void)UpdateWithName:(NSString *)s_name
+               Web_add:(NSString *)web_add;
 
 -(void)upDateWithWithNo:(int)no
                  Region:(NSString *)region

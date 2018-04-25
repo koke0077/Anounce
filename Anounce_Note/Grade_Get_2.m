@@ -616,12 +616,16 @@
         class_arr = [self devideString:html];
     }
     
-    
-    
-        
-    
     [self.delegate compliteGetGrade_2_Class:class_arr];
 }
 
+
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
+    
+    NSLog(@"error:%@", error);
+    [self.delegate failParsingGrade_get2];
+    
+    
+}
 
 @end

@@ -492,10 +492,14 @@
     
     
     [self.delegate compliteGetGradeClass:class_dic classArr:class_arr];
+}
+
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
+    
+    NSLog(@"error:%@", error);
+    [self.delegate failParsingGrade_get];
     
     
-    
-   
 }
 
 @end
