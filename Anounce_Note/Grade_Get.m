@@ -161,6 +161,11 @@
     NSString *startTag = [NSString stringWithFormat:@">%d 학년도<", year_now];
     NSString *secondTag = @"year_line";
     NSString *endTag = [NSString stringWithFormat:@">%d 학년도<", year_now-1];
+    if([HTML containsString:endTag]){
+        
+    }else{
+        endTag = @"</div>";
+    }
     
     NSMutableString *HTMLList = [[NSMutableString alloc] init];
     
@@ -372,9 +377,9 @@
         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"amp;" withString:@""];
         // 3월 26일 수정
         
-        if([HTML containsString:@"영재학급"]){
+        if([rangeBlock containsString:@"영재학급"]){
             
-        }else if ([HTML containsString:@"소프트"]){
+        }else if ([rangeBlock containsString:@"소프트"]){
             
         } else{
             [HTMLList addObject:rangeBlock];

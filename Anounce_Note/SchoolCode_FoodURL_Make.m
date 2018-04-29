@@ -318,38 +318,60 @@
 //    NSRange is_ok_1 = [HTML rangeOfString:@"어린이마당"];
 //    NSRange is_ok = [HTML rangeOfString:@"학급홈페이지"];
     NSString *startTag;
-    
-//    if (is_ok_2.length !=0) {
-//        startTag = @"우리학급";
-//    }else if (is_ok_1.length !=0) {
-//        startTag = @"어린이마당";
-//    }else if (is_ok.length !=0) {
-//        startTag = @"학급홈페이지,/";
-//    }else{
-    
-    
-//        startTag = @"학급까페";
-//    }
-    startTag = @"메인메뉴";
-    NSString *secondTag = @"<div";
+    NSString *secondTag;
     NSString *endTag;
-    if([HTML rangeOfString:@"우리학급,/"].length != 0){
-        endTag = @"우리학급";
-    }else if([HTML rangeOfString:@"우리교실"].length !=0){
-        endTag = @"우리교실";
-    }else if([HTML rangeOfString:@"학급홈페이지,/"].length !=0){
-        endTag = @"학급홈페이지";
-    }else if([HTML rangeOfString:@"어린이마당,/"].length !=0){
-        endTag = @"어린이마당";
-    }else if([HTML rangeOfString:@"학급 홈페이지,/"].length !=0){
-        endTag = @"학급 홈페이지";
-    }else if([HTML rangeOfString:@"우리학급홈페이지"].length !=0){
-        endTag = @"우리학급홈페이지";
-    }else if([HTML rangeOfString:@"우리반홈페이지"].length !=0){
-        endTag = @"우리반홈페이지";
+    
+    if([HTML containsString:@"0xFFFFFF"]){
+        if([HTML rangeOfString:@"우리학급,/"].length != 0){
+            startTag = @"우리학급";
+        }else if([HTML rangeOfString:@"우리교실"].length !=0){
+            startTag = @"우리교실";
+        }else if([HTML rangeOfString:@"학급홈페이지,/"].length !=0){
+            startTag = @"학급홈페이지";
+        }else if([HTML rangeOfString:@"어린이마당,/"].length !=0){
+            startTag = @"어린이마당";
+        }else if([HTML rangeOfString:@"학급 홈페이지,/"].length !=0){
+            startTag = @"학급 홈페이지";
+        }else if([HTML rangeOfString:@"우리학급홈페이지"].length !=0){
+            startTag = @"우리학급홈페이지";
+        }else if([HTML rangeOfString:@"우리반홈페이지"].length !=0){
+            startTag = @"우리반홈페이지";
+        }else{
+            startTag = @"학급";
+        }
+        
+       secondTag = @"mnu=";
+       endTag = @",";
+
     }else{
-        endTag = @"학급";
+        startTag = @"<h2>메인메뉴";
+        secondTag = @"<div";
+        if([HTML rangeOfString:@"우리학급"].length != 0){
+            endTag = @"우리학급";
+        }else if([HTML rangeOfString:@"우리교실"].length !=0){
+            endTag = @"우리교실";
+        }else if([HTML rangeOfString:@"학급홈페이지"].length !=0){
+            endTag = @"학급홈페이지";
+        }else if([HTML rangeOfString:@"어린이마당"].length !=0){
+            endTag = @"어린이마당";
+        }else if([HTML rangeOfString:@"어린이 마당"].length !=0){
+            endTag = @"어린이 마당";
+        }else if([HTML rangeOfString:@"학급 홈페이지"].length !=0){
+            endTag = @"학급 홈페이지";
+        }else if([HTML rangeOfString:@"우리학급홈페이지"].length !=0){
+            endTag = @"우리학급홈페이지";
+        }else if([HTML rangeOfString:@"우리학급 홈페이지"].length !=0){
+            endTag = @"우리학급 홈페이지";
+        }else if([HTML rangeOfString:@"우리반홈페이지"].length !=0){
+            endTag = @"우리반홈페이지";
+        }else if([HTML rangeOfString:@"우리반 홈페이지"].length !=0){
+            endTag = @"우리반 홈페이지";
+        }else{
+            endTag = @"학급";
+        }
     }
+//
+   
     
     
     
@@ -395,8 +417,21 @@
         
         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@">\"" withString:@""];
         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"\">" withString:@""];
-        
-        rangeBlock = [rangeBlock substringFromIndex:[rangeBlock length]-10];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"onmouseover=" withString:@""];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"onfocus=" withString:@""];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"showMenu" withString:@""];
+        rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"(1)" withString:@""];
+         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"(2)" withString:@""];
+         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"(3)" withString:@""];
+         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"(4)" withString:@""];
+         rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"(5)" withString:@""];
+        if(rangeBlock.length<11){
+            
+        }else{
+            rangeBlock = [rangeBlock substringFromIndex:[rangeBlock length]-10];
+
+        }
+        break;
     }
     return rangeBlock;
 }
@@ -482,18 +517,39 @@
     NSString *secondTag;
     NSString *endTag;
     
+//    if([HTML containsString:@"0xFFFFFF"]){
+//        if ([HTML rangeOfString:@"공지사항,/"].length != 0) {
+//            startTag = @"공지사항,";
+//            secondTag = @"/";
+//            endTag = @",";
+//        }else if([HTML rangeOfString:@">공지사항<"].length != 0){
+//            startTag = @"sub_1";
+//            secondTag = @"<a href=\"";
+//            //        secondTag = @"\">";
+//            endTag = @"\">공지사항";
+//
+//        }else{
+//            startTag = @"공지";
+//            secondTag = @"amp;";
+//            endTag = @",";
+//        }
+//    }else{
+        startTag = @"s_menu_wrap";
+        secondTag = @"href=\"";
+        if([HTML containsString:@"학교알림판"]){
+            endTag = @"학교알림판";
+        }else if([HTML containsString:@"공지사항"]){
+            endTag = @"공지사항";
+        }else if([HTML containsString:@"공지 사항"]){
+            endTag = @"공지 사항";
+        } else if([HTML containsString:@"학교소식"]){
+            endTag = @"학교소식";
+        } else{
+            endTag = @"공지";
+        }
+//    }
     
-    startTag = @"s_menu_wrap";
-    secondTag = @"href=\"";
-    if([HTML containsString:@"학교알림판"]){
-        endTag = @"학교알림판";
-    }else if([HTML containsString:@"학교소식"]){
-        endTag = @"학교소식";
-    }else if([HTML containsString:@"공지 사항"]){
-        endTag = @"공지 사항";
-    } else{
-        endTag = @"공지사항";
-    }
+    
     
     NSString *HTMLList = @"";
     
@@ -606,6 +662,11 @@
     }
     
     HTMLList = [HTMLList2 lastObject];
+    HTMLList = [HTMLList stringByReplacingOccurrencesOfString:@"onmouseover=\"showMenu(1)\"" withString:@""];
+    HTMLList = [HTMLList stringByReplacingOccurrencesOfString:@"onfocus=\"showMenu(1)" withString:@""];
+    HTMLList = [HTMLList stringByReplacingOccurrencesOfString:@" " withString:@""];
+    HTMLList = [HTMLList stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+    
     return HTMLList;
 }
 
@@ -674,15 +735,16 @@
     
     NSMutableString *news_Url = [[NSMutableString alloc]initWithString:self.sch_url];
     [news_Url appendString:@"/index.jsp?"];
-    [news_Url appendString:self.school_code];
-    [news_Url appendString:@"&"];
+//    [news_Url appendString:self.school_code];
+//    [news_Url appendString:@"&"];
     
 //    if([htmlData containsString:@",,false"]){
 //        [news_Url appendString:[self devideHTMLSringToNews_List:htmlData]];
 //    }else{
-        NSString *test_str1 = [self devideHTMLSringToNews_List2:htmlData];
-        NSString *test_str2 = [self devideHTMLSringToNews_List3:test_str1];
-        [news_Url appendString:test_str2];
+//        NSString *test_str1 = [self devideHTMLSringToNews_List2:htmlData];
+//        NSString *test_str2 = [self devideHTMLSringToNews_List3:test_str1];
+//        [news_Url appendString:test_str2];
+    [news_Url appendString:@"mnu=M001006001"];
 //    }
     /*
     if([self.sch_url containsString:@"galjeon"] || [self.sch_url containsString:@"jyjungang"]){

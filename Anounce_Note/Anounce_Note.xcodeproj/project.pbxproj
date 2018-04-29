@@ -116,6 +116,7 @@
 		85C98F38207B8B720002FD25 /* Send_News.m in Sources */ = {isa = PBXBuildFile; fileRef = 85C98F37207B8B720002FD25 /* Send_News.m */; };
 		85C98F3A207BAD460002FD25 /* school_data11.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 85C98F39207BAD460002FD25 /* school_data11.sqlite */; };
 		85F5A00A1E470BDD0022FF79 /* NoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F5A0091E470BDD0022FF79 /* NoticeViewController.m */; };
+		85F5CF1E2095FC4F00DE34E0 /* school_data13.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 85F5CF1D2095FC4F00DE34E0 /* school_data13.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -292,6 +293,7 @@
 		85C98F39207BAD460002FD25 /* school_data11.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = school_data11.sqlite; sourceTree = "<group>"; };
 		85F5A0081E470BDD0022FF79 /* NoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeViewController.h; sourceTree = "<group>"; };
 		85F5A0091E470BDD0022FF79 /* NoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeViewController.m; sourceTree = "<group>"; };
+		85F5CF1D2095FC4F00DE34E0 /* school_data13.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = school_data13.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -469,6 +471,7 @@
 		15F9FCD11AFF205A00D6E7D5 /* Sq_Data */ = {
 			isa = PBXGroup;
 			children = (
+				85F5CF1D2095FC4F00DE34E0 /* school_data13.sqlite */,
 				858A12A120909F9C001BAB03 /* school_data12.sqlite */,
 				858A129D208E4D80001BAB03 /* school_data11.sqlite */,
 				858A129B208E3804001BAB03 /* high_school_data.sqlite2 */,
@@ -695,6 +698,7 @@
 				15F6ED931B14D76400589B86 /* basic_bg.png in Resources */,
 				15CA2BEF1B1D72CE00C2A41D /* 삼베.png in Resources */,
 				156545E61B219C560010EDA4 /* bg_4.png in Resources */,
+				85F5CF1E2095FC4F00DE34E0 /* school_data13.sqlite in Resources */,
 				15792FBF1CA7E406004F7E40 /* bg_1_1.png in Resources */,
 				856F25441E9F3C5000073918 /* school_data6.sqlite in Resources */,
 				15BE04A21DD5E9DA00A0A46D /* school_data3.sqlite in Resources */,

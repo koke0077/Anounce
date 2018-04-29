@@ -111,9 +111,7 @@ NSInteger const SMEPGiPadViewControllerCellWidth = 300;
     }else{
         [school_data UpdateWithName:@"무동초등학교" Web_add:@"mudong-p.gne.go.kr"];
         
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"1.3.1 긴급 업데이트" message:@"2018.4.25.에 실시된 업데이트를 통해 가정통신문 기능이 추가되었습니다. 하지만 일부 학교에서 앱이 꺼지는 현상이 발생하여 긴급 업데이트를 하였습니다. 불편을 드려 죄송합니다. " delegate:self cancelButtonTitle:@"확인" otherButtonTitles:nil, nil];
-        alertView.tag = 1;
-        [alertView show];
+        
     }
     
     int now_state = [s_data isColumnInTable];
@@ -186,8 +184,11 @@ NSInteger const SMEPGiPadViewControllerCellWidth = 300;
     
 //    self.notice_view.view.frame = CGRectMake(self.view.frame.size.width/2-150, self.view.frame.size.height/2-150, 300, 300);
     self.notice_view.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"1.3.2 업데이트" message:@"2018.4.26. 실시된 긴급 업데이트로도 문제가 해결되지 않아 1.3.2로 업데이트를 합니다. 잦은 오류로 인해 불편함을 드려 죄송합니다. 이용하시다가 문제가 있을 경우 언제라도 문의하기를 통해 말씀해주시면 향후 생겨나는 문제들에 대해 보다 빨리 대처할 수 있습니다." delegate:self cancelButtonTitle:@"확인" otherButtonTitles:nil, nil];
+    alertView.tag = 1;
+    [alertView show];
     
-    NSLog(@"%f, %f, %f, %f", self.notice_view.view.frame.size.width, self.notice_view.view.frame.size.height, self.notice_view.view.frame.origin.x, self.notice_view.view.frame.origin.y);
+//    NSLog(@"%f, %f, %f, %f", self.notice_view.view.frame.size.width, self.notice_view.view.frame.size.height, self.notice_view.view.frame.origin.x, self.notice_view.view.frame.origin.y);
     
 //    self.tableview.userInteractionEnabled = NO;
 //    self.collectionView.userInteractionEnabled = NO;

@@ -272,6 +272,13 @@
         
         if(flag <1){
             rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"1반" withString:@""];
+            rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"매반" withString:@""];
+            rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"솔반" withString:@""];
+            rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"대반" withString:@""];
+            rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"돌봄교실" withString:@""];
+            rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"보건" withString:@""];
+            rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"SLP" withString:@""];
+            rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"음악" withString:@""];
              rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"2반" withString:@""];
              rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"3반" withString:@""];
              rangeBlock = [rangeBlock stringByReplacingOccurrencesOfString:@"4반" withString:@""];

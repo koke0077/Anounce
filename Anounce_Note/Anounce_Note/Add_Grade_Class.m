@@ -179,11 +179,11 @@
     if([class_dic allKeys].count == 0){
         dic_count = 0;
         
-        [self.indicator stopAnimating];
-        
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"일시 장애" message:@"데이터를 가져오는데 실패했습니다. 다시 시도해주세요." delegate:self cancelButtonTitle:@"확인" otherButtonTitles:nil, nil];
-        alertView.tag = 2;
-        [alertView show];
+//        [self.indicator stopAnimating];
+//        
+//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"일시 장애" message:@"데이터를 가져오는데 실패했습니다. 다시 시도해주세요." delegate:self cancelButtonTitle:@"확인" otherButtonTitles:nil, nil];
+//        alertView.tag = 2;
+//        [alertView show];
         
     }else{
                 
